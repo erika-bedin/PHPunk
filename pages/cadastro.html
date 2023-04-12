@@ -21,7 +21,53 @@
         </nav>
     </header>
     <main>
-        
+        <h1>Newsletter</h1>
+        <h2>Recebe novidades personalizadas para você!</h2>
+	    <form action="#">
+		    <label for="nome">Nome completo:</label>
+		    <input type="text" id="nome" name="nome" required>
+            <br><br>
+		    <label for="email">Endereço de email:</label>
+		    <input type="email" id="email" name="email" required>
+            <br><br>
+            <label for="telefone">Telefone</label>
+		    <input type="tel" id="telefone" name="telefone">
+            <br><br>
+            <fieldset width="500">
+                <legend>Interesses de subgeneros preferidos do Rock</legend>
+                <input type="radio" id="metal" name="metal">
+                <label for="metal">Metal</label>
+                <input type="radio" id="classico" name="classico">
+                <label for="metal">Clássico</label>
+                <input type="radio" id="poprock" name="poprock">
+                <label for="poprock">Pop Rock</label>
+                <input type="radio" id="punkrock" name="punkrock">
+                <label for="punkrock">Punk Rock</label>
+                <input type="radio" id="alternativo" name="alternativo">
+                <label for="alternativo">Alternativo</label>
+                <input type="radio" id="indie" name="indie">
+                <label for="indie">Indie</label>
+            </fieldset>
+            <br>
+            <br>
+		    <label for="frequencia">Frequência das atualizações:</label>
+		    <select id="frequencia" name="frequencia">
+			    <option value="semanal">Semanal</option>
+			    <option value="mensal">Mensal</option>
+			    <option value="ocasional">Apenas em ocasiões especiais</option>
+		    </select>
+            <br><br>
+            <label for="sugestoes">Deixe sua segestão</label>
+            <br>
+            <textarea name="sugestoes" id="sugestoes" cols="30" rows="10" ></textarea>
+            <br><br>
+		    <label for="politica_privacidade">Política de privacidade:</label>
+            <br>
+		    <input type="checkbox" id="politica_privacidade" name="politica_privacidade" required>
+		    <label for="politica_privacidade">Li e concordo com a política de privacidade</label>
+            <br><br>
+		    <button type="submit">Enviar</button>
+        </form>
     </main>
     <footer>
         <p>Redes Sociais</p>
