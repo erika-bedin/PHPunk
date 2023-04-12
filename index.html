@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Adicionando imagem nas abas do site -->
     <link rel="shortcut icon" href="./imgs/favicon.ico" type="image/x-icon">
     <title>Rock Music - Inicio</title>
  
@@ -24,14 +25,26 @@
     <main>
         <section>
             <p>Recomendação: Hit do dia!</p>
+            <!-- utilizando algumas propriedades da tag video 
+                * width serve para definir largura 
+                * heigth serve para definir altura 
+                * controls permite que o usuario controle o player do video 
+                * poster define a imagem que vai aparecer na thumbnail 
+            -->
+            <video width="640" height="360" controls poster="./imgs/mcr01.jpg">
+                <source src="./videos/MCR-Helena.mp4" type="video/mp4">
+                Seu navegador não suporta o elemento <code>video</code>.
+              </video>
+              <br>
+              <!-- tentativa de utilizar um video direto do youtube com a tag iframe  -->
             <iframe width="640" height="360" src="https://www.youtube.com/embed/UCCyoocDxBA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             <br>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti quae adipisci aliquam itaque fugit. Facilis perferendis nihil at rerum iure.</p>
             <video width="640" height="360" controls>
-                <source src="#" type="video/mp4">
+                <source src="./videos/I-Miss_You-Blink-182.mp4" type="video/mp4">
                 Seu navegador não suporta o elemento <code>video</code>.
-              </video>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus placeat commodi eos exercitationem nesciunt itaque sunt sit quia tenetur sed voluptatum quam aperiam recusandae culpa qui at, modi ipsam iusto voluptatibus, ipsum maiores, dolore nobis rerum. Natus recusandae explicabo iure laudantium fuga nemo accusamus nobis. Aliquid, voluptatum quo, accusamus dolor sapiente esse quasi quis blanditiis minima totam praesentium commodi. Odit!</p>
+            </video>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus placeat commodi eos exercitationem nesciunt itaque sunt sit quia tenetur sed voluptatum quam aperiam recusandae culpa qui at, modi ipsam iusto voluptatibus, ipsum maiores, dolore nobis rerum. Natus recusandae explicabo iure laudantium fuga nemo accusamus nobis. Aliquid, voluptatum quo, accusamus dolor sapiente esse quasi quis blanditiis minima totam praesentium commodi. Odit!</p>
         </section>
         <section>
             <p><strong>My chemical Romance</strong>: A maior banda emo de todos os tempos!</p>
@@ -56,27 +69,30 @@
             <p>Mais ouvidos do site</p>
             <div>
                 <p>Green Day</p>
-                <img src="" alt="">
+                <!-- utlizando a propriedade title para dar instrucoes para o usuario 
+                     assim que o mouse do usuario parar em cima da imagem, a mensagem configurada no tittle ira aparecer na tela
+                -->
+                <a href="https://www.youtube.com/watch?v=9IclmVdWNbI&ab_channel=GreenDay" target="_blank" title="Clique na imagem para ouvir a música Know Your Enemy da banda Green Day"><img width="500" height="330" src="./imgs/green-day.jpg" alt=""></a>
             </div>
                 
             <div>
                 <p>Avenged Sevenfold</p>
-                <img src="" alt="">
+                <a href="https://www.youtube.com/watch?v=HIRNdveLnJI&ab_channel=AvengedSevenfold" target="_blank" title="Clique na imagem para ouvir a música Afterlife da banda Avenged Sevenfold"><img width="500" height="330" src="./imgs/a7x.jpg" alt=""></a>
             </div>
 
             <div>
                 <p>Panic! at the disco</p>
-                <img src="" alt="">
+                <a href="https://www.youtube.com/watch?v=8AZxUtZ2ZgI" target="_blank" title="Clique na imagem para ouvir a música lying is the most fun a girl can have without taking her clothes off da banda Panic! At the disco"><img width="500" height="330" src="./imgs/patd.png" alt=""></a>
             </div>
 
             <div>
                 <p>System of a Down</p>
-                <img src="" alt="">
+                <a href="https://www.youtube.com/watch?v=eudOwe3Rz-0&ab_channel=systemofadownVEVO" target="_blank" title="Clique na imagem para ouvir a música I.E.A.I.A.I.O da banda System of a Down"><img width="500" height="330" src="./imgs/SOAD.jpg" alt=""></a>
             </div>
 
             <div>
-                <p></p>
-                <img src="" alt="">
+                <p>A day to remember</p>
+                <a href="https://www.youtube.com/watch?v=xaKdRwCveEc&ab_channel=ADayToRememberVEVO" target="_blank" title="Clique na imagem para ouvir a música I'm Made of Wax, Larry, What Are You Made Of? da banda A Day To Remeber"><img width="500" height="330" src="./imgs/ADTR.jpg" alt=""></a>
             </div>
         </section>
     </main>
