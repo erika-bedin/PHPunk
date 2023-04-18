@@ -6,14 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Adicionando imagem nas abas do site -->
     <link rel="shortcut icon" href="./imgs/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Rock Music - Inicio</title>
  
 </head>
 <body>
     <header>
-        <img src="" alt="LOGO">
+        <h1>PHPunk</h1>
+        <hr class="linha-header">
         <nav>
-            <ul>
+            <ul class="menu-header">
                 <li><a href="./index.html">Inicio</a></li>
                 <li><a href="./pages/biblioteca.html">Biblioteca</a></li>
                 <li><a href="./pages/quemSomos.html">Quem somos</a></li>
@@ -23,48 +25,60 @@
         </nav>
     </header>
     <main>
-        <section>
-            <p>Recomendação: Hit do dia!</p>
-            <!-- utilizando algumas propriedades da tag video 
-                * width serve para definir largura 
-                * heigth serve para definir altura 
-                * controls permite que o usuario controle o player do video 
-                * poster define a imagem que vai aparecer na thumbnail 
-            -->
-            <video width="640" height="360" controls poster="./imgs/mcr01.jpg">
-                <source src="./videos/MCR-Helena.mp4" type="video/mp4">
-                Seu navegador não suporta o elemento <code>video</code>.
-              </video>
-              <br>
-              <!-- tentativa de utilizar um video direto do youtube com a tag iframe  -->
-            <iframe width="640" height="360" src="https://www.youtube.com/embed/UCCyoocDxBA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <br>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti quae adipisci aliquam itaque fugit. Facilis perferendis nihil at rerum iure.</p>
-            <video width="640" height="360" controls>
-                <source src="./videos/I-Miss_You-Blink-182.mp4" type="video/mp4">
-                Seu navegador não suporta o elemento <code>video</code>.
-            </video>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus placeat commodi eos exercitationem nesciunt itaque sunt sit quia tenetur sed voluptatum quam aperiam recusandae culpa qui at, modi ipsam iusto voluptatibus, ipsum maiores, dolore nobis rerum. Natus recusandae explicabo iure laudantium fuga nemo accusamus nobis. Aliquid, voluptatum quo, accusamus dolor sapiente esse quasi quis blanditiis minima totam praesentium commodi. Odit!</p>
+        <section id="recomendacoes">
+            <aside class="aside1">
+                <p>Top 5 bandas de metal:</p>
+                <ol>
+                    <li><a href="https://www.metallica.com/" target="_bl
+                        ">Metallica</a></li>
+                    <li><a href="https://www.blacksabbath.com/welcome.html" target="_blank">Black Sabbath</a></li>
+                    <li><a href="https://www.ironmaiden.com/" target="_blank">Iron Maiden</a></li>
+                    <li><a href="https://judaspriest.com/home/" target="_blank">Judas Priest</a></li>
+                    <li><a href="https://www.slayer.net/" target="_blank">Slayer</a></li>
+                </ol>
+            </aside>
+            <section class="hits-do-dia">
+                <h2>Recomendação: Hit do dia!</h2>
+                <div class="cartao-recomendacao">
+                    <iframe width="640" height="360" src="https://www.youtube.com/embed/UCCyoocDxBA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti quae adipisci aliquam itaque fugit. Facilis perferendis nihil at rerum iure.</p>
+                </div>
+                <div class="cartao-recomendacao">
+                    <iframe width="640" height="360" src="https://www.youtube.com/embed/s1tAYmMjLdY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus placeat commodi eos exercitationem nesciunt itaque sunt sit quia tenetur sed voluptatum quam aperiam recusandae culpa qui at, modi ipsam iusto voluptatibus, ipsum maiores, dolore nobis rerum. Natus recusandae explicabo iure laudantium fuga nemo accusamus nobis. Aliquid, voluptatum quo, accusamus dolor sapiente esse quasi quis blanditiis minima totam praesentium commodi. Odit!</p>
+                </div>
+            </section>
+            <aside class="aside2">
+                <p>Top 5 bandas de metal:</p>
+                <ol>
+                    <li><a href="https://www.metallica.com/" target="_bl
+                        ">Metallica</a></li>
+                    <li><a href="https://www.blacksabbath.com/welcome.html" target="_blank">Black Sabbath</a></li>
+                    <li><a href="https://www.ironmaiden.com/" target="_blank">Iron Maiden</a></li>
+                    <li><a href="https://judaspriest.com/home/" target="_blank">Judas Priest</a></li>
+                    <li><a href="https://www.slayer.net/" target="_blank">Slayer</a></li>
+                </ol>
+            </aside>
         </section>
-        <section>
+        <section id="">
             <p><strong>My chemical Romance</strong>: A maior banda emo de todos os tempos!</p>
             <img src="./imgs/mcr01.jpg" alt="Integrantes da banda My Chemical Romance posando para foto. Todos com roupas semelhante a de soldado, nas cores preto e branco">
             <p>Clique <a href="https://www.youtube.com/watch?v=RRKJiM9Njr8&ab_channel=MyChemicalRomance" target="_blank">AQUI</a> para ouvir agora!</p>
             <p>Os reis do pop punk: <strong>blink-182</strong></p>
             <img src="./imgs/blink182.png" alt="Integrantes da banda blink-182 posando pra foto.">
             <p><a href="https://www.youtube.com/watch?v=s1tAYmMjLdY&ab_channel=blink182VEVO" target="_blank">Escute AGORA</a> um clássico dessa banda que marcou muitas gerações!</p>
+            <aside>
+                <p>Top 5 bandas de metal:</p>
+                <ol>
+                    <li><a href="https://www.metallica.com/" target="_bl
+                        ">Metallica</a></li>
+                    <li><a href="https://www.blacksabbath.com/welcome.html" target="_blank">Black Sabbath</a></li>
+                    <li><a href="https://www.ironmaiden.com/" target="_blank">Iron Maiden</a></li>
+                    <li><a href="https://judaspriest.com/home/" target="_blank">Judas Priest</a></li>
+                    <li><a href="https://www.slayer.net/" target="_blank">Slayer</a></li>
+                </ol>
+            </aside>
         </section>
-        <aside>
-            <p>Top 5 bandas de metal:</p>
-            <ol>
-                <li><a href="https://www.metallica.com/" target="_bl
-                    ">Metallica</a></li>
-                <li><a href="https://www.blacksabbath.com/welcome.html" target="_blank">Black Sabbath</a></li>
-                <li><a href="https://www.ironmaiden.com/" target="_blank">Iron Maiden</a></li>
-                <li><a href="https://judaspriest.com/home/" target="_blank">Judas Priest</a></li>
-                <li><a href="https://www.slayer.net/" target="_blank">Slayer</a></li>
-            </ol>
-        </aside>
         <section>
             <p>Mais ouvidos do site</p>
             <div>
