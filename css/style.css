@@ -110,3 +110,85 @@ nav{
     width: 100%;
 }
 
+/*Configuracao da pagina de cadastro*/
+
+#main-cadastro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#formulario-container{
+    display: flex;
+    margin-top: 15px;
+    flex-direction: column;
+    max-width: 50%;
+    width: 50%;
+    gap: 10px;
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 1px 1px 6px var(--cor_950); 
+    background-color: var(--cor_200);
+} 
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    width: 75%;
+    
+}
+
+.input-container input{
+    padding: 0.3rem;
+    width: 100%;
+    border: solid 1px var(--cor_950);
+    border-radius: 5px;
+}
+
+#formulario-container fieldset{
+    width: 75%;
+    padding: 0.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-radius: 5px;
+    border: solid 1px var(--cor_950);
+}
+
+.radio-container{
+    display: flex;
+    margin: 5px;
+}
+
+.input-container select{
+    width: 100%;
+    padding: 0.3rem;
+    border-radius: 5px;
+    border: solid 1px var(--cor_950);
+}
+
+.input-container textarea{
+    width: 100%;
+    margin-bottom: 10px;
+    resize: none;
+    border-radius: 5px;
+    border: solid 1px var(--cor_950);
+}
+
+
+#formulario-container button {
+    width: 30%;
+    padding: 0.3rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: solid 1px var(--cor_950);
+}
+
+.politicas-container {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+}

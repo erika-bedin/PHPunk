@@ -22,53 +22,73 @@
             </ul>
         </nav>
     </header>
-    <main>
+    <main id="main-cadastro">
         <h1>Newsletter</h1>
         <h2>Recebe novidades personalizadas para você!</h2>
-	    <form action="#">
-		    <label for="nome">Nome completo:</label>
-		    <input type="text" id="nome" name="nome" required>
-            <br><br>
-		    <label for="email">Endereço de email:</label>
-		    <input type="email" id="email" name="email" required>
-            <br><br>
-            <label for="telefone">Telefone</label>
-		    <input type="tel" id="telefone" name="telefone">
-            <br><br>
-            <fieldset width="500">
+        <form id="formulario-container">
+            <div class="input-container">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" placeholder="Insira seu nome" required>
+            </div>
+            <div class="input-container">
+                <label for="sobrenoe">Sobrenome:</label>
+                <input type="text" id="sobrenome" name="sobrenome" placeholder="Insira seu sobrenome" required>
+            </div>
+            <div class="input-container">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+            </div>
+            <div class="input-container">
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="Telefone">
+            </div>
+            <fieldset>
                 <legend>Interesses de subgeneros preferidos do Rock</legend>
-                <input type="radio" id="metal" name="metal">
-                <label for="metal">Metal</label>
-                <input type="radio" id="classico" name="classico">
-                <label for="metal">Clássico</label>
-                <input type="radio" id="poprock" name="poprock">
-                <label for="poprock">Pop Rock</label>
-                <input type="radio" id="punkrock" name="punkrock">
-                <label for="punkrock">Punk Rock</label>
-                <input type="radio" id="alternativo" name="alternativo">
-                <label for="alternativo">Alternativo</label>
-                <input type="radio" id="indie" name="indie">
-                <label for="indie">Indie</label>
+                <div class="radio-container">
+                    <input type="radio" id="metal" name="metal">
+                    <label for="metal">Metal</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="classico" name="classico">
+                    <label for="classico">Clássico</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="poprock" name="poprock">
+                    <label for="poprock">Pop Rock</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="punkrock" name="punkrock">
+                    <label for="punkrock">Punk Rock</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="alternativo" name="alternativo">
+                    <label for="alternativo">Alternativo</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="indie" name="indie">
+                    <label for="indie">Indie</label>
+                </div>
             </fieldset>
-            <br>
-            <br>
-		    <label for="frequencia">Frequência das atualizações:</label>
-		    <select id="frequencia" name="frequencia">
-			    <option value="semanal">Semanal</option>
-			    <option value="mensal">Mensal</option>
-			    <option value="ocasional">Apenas em ocasiões especiais</option>
-		    </select>
-            <br><br>
-            <label for="sugestoes">Deixe sua segestão</label>
-            <br>
-            <textarea name="sugestoes" id="sugestoes" cols="30" rows="10" ></textarea>
-            <br><br>
-		    <label for="politica_privacidade">Política de privacidade:</label>
-            <br>
-		    <input type="checkbox" id="politica_privacidade" name="politica_privacidade" required>
-		    <label for="politica_privacidade">Li e concordo com a política de privacidade</label>
-            <br><br>
-		    <button type="submit">Enviar</button>
+            <div class="input-container">
+                <label for="frequencia">Frequência das atualizações:</label>
+                <select id="frequencia" name="frequencia">
+                    <option value="semanal">Semanal</option>
+                    <option value="mensal">Mensal</option>
+                    <option value="ocasional">Apenas em ocasiões especiais</option>
+                </select>
+            </div>
+            <div class="input-container">
+                <label for="sugestoes">Deixe sua segestão</label>
+                <textarea name="sugestoes" id="sugestoes" cols="30" rows="10" ></textarea>
+            </div>
+            <div class="politicas-container">
+                <label for="politica_privacidade">Política de privacidade:</label>
+                <div class="input-caontainer">
+                    <input type="checkbox" id="politica_privacidade" name="politica_privacidade" required>
+                    <label for="politica_privacidade">Li e concordo com a política de privacidade</label>
+                </div>
+            </div>
+            <button type="submit">Enviar</button>
         </form>
     </main>
     <footer>
