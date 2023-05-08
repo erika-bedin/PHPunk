@@ -19,7 +19,7 @@
     --cor_800: #383838;
     --cor_900: #313131;
     --cor_950: #1a1a1a;
-}
+        }
 
 body{
     color: var(--cor_0) ;
@@ -265,13 +265,16 @@ footer{
     font-size: 16px;
     font-family: "New Rocker", sans-serif;
     color: white;
-    background-color: #1a1a1a;
+    background-color: #1a1a1a;    
+    display: block;
+    flex-direction: column;
+    align-items: center;
 }
 
 #h1-quemsomos {
     font-size: 30px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: block;
     justify-content: center;
     text-align: justify;
@@ -280,7 +283,8 @@ footer{
 }
 
 #h2-quemsomos {
-    font-size: 24px;
+    color: white;
+    font-size: 28px;
     display: flex;
     flex-direction: row;
     align-items: block;
@@ -290,13 +294,14 @@ footer{
 
 #h3-quemsomos {
     color: white;
+    background-color: #a4a4a4;
     font-size: 24px;
     display: flex;
     flex-direction: row;
     align-items: block;
     justify-content: center;
     text-align: justify;
-    border-radius: 50%
+    border-radius: 50%;
 }
 
 #imagem-arredondada {
