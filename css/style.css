@@ -156,6 +156,7 @@ footer{
 }
 
 .cartao-recomendacao{
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -164,6 +165,10 @@ footer{
 .cartao-recomendacao iframe{
     width: 80%;
     aspect-ratio: 16/9;
+}
+
+.cartao-recomendacao p {
+    width: 80%;
 }
 
 /*Configuracao da pagina de cadastro*/
