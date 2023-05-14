@@ -21,6 +21,7 @@
     --cor_950: #1a1a1a;
         }
 
+/*Configuracoes gerais*/
 body{
     color: var(--cor_0) ;
     background-color: var(--cor_950);
@@ -113,10 +114,17 @@ article,div,section{
 }
 
 .menu-header a:hover{
-    color: red;
-    transition: 0.5s;
+    animation: fogo 1s ease-in-out infinite;
 }
 
+footer{
+    background-color: var(--cor_950);
+    display: flex;
+    flex-direction: column;
+       
+}
+
+/*Configuracoes pagina inicial */
 #recomendacoes{
     margin: 20px 0px;
     display: flex;
@@ -252,13 +260,6 @@ article,div,section{
     align-items: center;
 }
 
-footer{
-    background-color: var(--cor_950);
-    display: flex;
-    flex-direction: row;
-    align-items: block;
-    justify-content: center;   
-}
 
 /*Configuracao da pagina de quem somos*/
 #section-quemsomos {
@@ -307,3 +308,25 @@ footer{
 #imagem-arredondada {
     border-radius: 50%;
 }
+
+@keyframes fogo {
+    0% {
+      text-shadow: 0px 0px 5px #ff6633, 0px 0px 10px #ff6633, 0px 0px 15px #ff6633, 0px 0px 20px #ff6633, 0px 0px 30px #ff6633, 0px 0px 40px #ff6633, 0px 0px 50px #ff6633;
+    }
+    20% {
+      text-shadow: 0px 0px 5px #ff6633, 0px 0px 10px #ff6633, 0px 0px 15px #ff6633, 0px 0px 20px #ff6633, 0px 0px 30px #ff9933, 0px 0px 40px #ff9933, 0px 0px 50px #ff9933;
+    }
+    40% {
+      text-shadow: 0px 0px 5px #ff9933, 0px 0px 10px #ff9933, 0px 0px 15px #ff9933, 0px 0px 20px #ff9933, 0px 0px 30px #ffcc33, 0px 0px 40px #ffcc33, 0px 0px 50px #ffcc33;
+    }
+    60% {
+      text-shadow: 0px 0px 5px #ffcc33, 0px 0px 10px #ffcc33, 0px 0px 15px #ffcc33, 0px 0px 20px #ffcc33, 0px 0px 30px #ff9933, 0px 0px 40px #ff9933, 0px 0px 50px #ff9933;
+    }
+    80% {
+      text-shadow: 0px 0px 5px #ff9933, 0px 0px 10px #ff9933, 0px 0px 15px #ff9933, 0px 0px 20px #ff9933, 0px 0px 30px #ff6633, 0px 0px 40px #ff6633, 0px 0px 50px #ff6633;
+    }
+    100% {
+      text-shadow: 0px 0px 5px #ff6633, 0px 0px 10px #ff6633, 0px 0px 15px #ff6633, 0px 0px 20px #ff6633, 0px 0px 30px #ff6633, 0px 0px 40px #ff6633, 0px 0px 50px #ff6633;
+    }
+  }
+  
