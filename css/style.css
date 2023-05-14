@@ -120,8 +120,24 @@ article,div,section{
 footer{
     background-color: var(--cor_950);
     display: flex;
-    flex-direction: column;
-       
+    flex-direction: row; 
+    justify-content: space-around; 
+    align-items: center;
+    height: 40vh;
+    
+}
+
+.linha-footer{
+    margin-top: 40px;
+}
+
+.container-redesSociais{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+.container-redesSociais img{
+    border-radius: 5px;
 }
 
 /*Configuracoes pagina inicial */
@@ -255,9 +271,24 @@ footer{
 #section-biblioteca {
     color: white;
     background-color: #1a1a1a;
-    display: block;
+    display: flex;
+    gap: 40px;
     flex-direction: column;
-    align-items: center;
+}
+
+.primeiro-container-biblioteca{
+    width: 100%;
+}
+
+.videos-container-cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+} 
+
+.videos-container-cards iframe{
+    width: 22,5%;
 }
 
 
