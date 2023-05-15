@@ -448,7 +448,7 @@ footer p{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 60px;
     margin-top: 20px;
   }
 
