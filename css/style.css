@@ -404,6 +404,31 @@ footer p{
     width: 22,5%;
 }
 
+.container-texto-quem-somos{
+    width: 80%;
+}
+
+#recomend{
+    margin-bottom: 30px;
+}
+
+.container-texto-quem-somos h1{
+    margin-bottom: 20px;
+}
+
+.videos-recomend-container{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.primeiro-container-biblioteca h1, .container-feito-para-voce h3, .container-mais-ouvidos h3{
+    margin-bottom: 30px;
+}
+
+
 
 /*Configuracao da pagina de quem somos*/
 #section-quemsomos {
@@ -411,47 +436,41 @@ footer p{
     font-family: "New Rocker", sans-serif;
     color: white;
     background-color: #1a1a1a;    
-    display: block;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#h1-quemsomos {
-    font-size: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: block;
-    justify-content: center;
-    text-align: justify;
-    
-    
-}
-
-#h2-quemsomos {
-    color: white;
-    font-size: 28px;
+.card-membros-squad{
+    margin-bottom: 40px;
     display: flex;
     flex-direction: row;
-    align-items: block;
-    justify-content: center;
-    text-align: justify;
+    flex-wrap: wrap;
+    gap: 20px ;
+    align-items: center;
+    border: solid var(--cor_50) 2px;
+    background-color: var(--cor_500);
+    padding: 10px;
+    border-radius: 10px;
 }
 
-#h3-quemsomos {
-    color: white;
-    background-color: #a4a4a4;
-    font-size: 24px;
-    display: flex;
-    flex-direction: row;
-    align-items: block;
-    justify-content: center;
-    text-align: justify;
-    border-radius: 50%;
+.card-membros-squad img{
+    width: 100%;
+    max-width: 200px;
+    border: solid var(--cor_200) 2px;
+    border-radius: 20px;
+    filter: grayscale(100%) blur(2px);
+    transition: filter 0.5s ease-in-out;
 }
 
-#imagem-arredondada {
-    border-radius: 50%;
+.card-membros-squad img:hover{
+    filter: grayscale(0%) blur(0px);
 }
+
+.videos-recomend-container{
+    margin-bottom: 40px;
+}
+
 
 @keyframes fogo {
     0% {
