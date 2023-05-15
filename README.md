@@ -21,12 +21,12 @@ Espera-se que o aluno consiga executar as seguites atividades:
 * Uso do Github para gestão do projeto 
 * Uso do Discord para comunicação da equipe
 ### Ao final da sprint:
-* Projeto com os componentes básicos de um site: 
-- Header; 
-- Barra de navegação; 
-- Formulário; 
-- Seções e artigos; 
-- Footer.  
+- Projeto com os componentes básicos de um site: 
+    - Header; 
+    - Barra de navegação; 
+    - Formulário; 
+    - Seções e artigos; 
+    - Footer.  
 
 ## Sprint III - Telas
 Espera-se que o aluno consiga executar as seguites atividades: 

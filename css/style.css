@@ -31,11 +31,13 @@ body{
 }
 
 header{
-    background-color: var(--cor_950);
+    /* background-color: var(--cor_950); */
+    background-image: url(fogo.gif);
+    /* background-size: cover; */
+    background-repeat: no-repeat;
     display: flex;
     font-family: "New Rocker", sans-serif;
     flex-direction: column;
-    /* height: 100px; */
     align-items: center;
     justify-content: space-around;
     
@@ -69,10 +71,6 @@ h2,h3{
     justify-content: space-around;
     text-align: justify;
 }
-
-/* nav{
-    
-} */
 
 .linha-header{
     width: 100%;
@@ -196,6 +194,40 @@ footer p{
 
 #galeria{
     margin: 100px 0px;
+    width: 100%;
+}
+
+#destaques{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.cartao-destaques{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+} 
+
+.cartao-destaques p{
+    font-size: 1.2rem;
+    color: var(--cor_300);
+}
+
+.cartao-destaques img{
+    width: 100%;
+    max-width: 600px;
+}
+
+.cartao-destaques a{
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: var(--cor_100);
+}
+
+.cartao-destaques a:hover{
+    color: var(--cor_0);
 }
 
 .cartao-recomendacao{
@@ -220,12 +252,16 @@ footer p{
     flex-direction: column;
 }
 
+#mais-ouvidos p {
+    font-size: 1.2rem;
+}
+
 .mais-ouvidos-cartao-container{
     margin-top: 30px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 40px;
 }
 
 .cartao-mais-ouvidos{
