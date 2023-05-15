@@ -121,7 +121,7 @@ article,div,section{
 footer{
     background-color: var(--cor_950);
     display: flex;
-    flex-direction: row; 
+    flex-direction: column; 
     justify-content: space-around; 
     align-items: center;
     height: 40vh;
@@ -169,6 +169,44 @@ footer{
 
 .cartao-recomendacao p {
     width: 80%;
+}
+
+#mais-ouvidos{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.mais-ouvidos-cartao-container{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.cartao-mais-ouvidos{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+}
+
+.cartao-mais-ouvidos p{
+    font-size: 1.2rem;
+}
+
+.cartao-mais-ouvidos img{
+    width: 100%;
+    height: 100%;
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 300px;
+    filter: brightness(0.6); 
+}
+
+.cartao-mais-ouvidos img:hover{
+    filter: brightness(1);
 }
 
 /*Configuracao da pagina de cadastro*/
