@@ -10,9 +10,11 @@ Espera-se que o aluno consiga executar as seguites atividades:
 #### * Implementar um design com a manipulação do modelo de caixa dos elementos, além de tamanhos e cores das fontes;
 #### * Tentar implementar o uso de flex-box em ao menos uma das telas.
 ### Organização 
-#### * Uso do Github para getão do projeto 
-#### * Uso do Discord para comunicação da equipe. 
-
+ * Uso do Github para getão do projeto 
+ * Uso do Discord para comunicação da equipe. 
+### Ao final da sprint:
+ * O projeto deve apresentar um design intuitivo, claro e objetivo, pensado na experiência do usuário 
+  
 
 ## :handshake: Membros
 * <a href="https://github.com/brunonavarone">Bruno Henrique</a>
