@@ -23,6 +23,22 @@
     --cor_1000: rgb(15, 15, 15);
         }
 
+    .darkMode-LightMode:root{
+        --cor_1000: white;
+        --cor_950: #f7f7f7;
+        --cor_900: #e3e3e3;
+        --cor_800: #c8c8c8;
+        --cor_700: #a4a4a4;
+        --cor_600: #787878;
+        --cor_500: #666666;
+        --cor_400: #515151;
+        --cor_300: #434343;
+        --cor_200: #383838;
+        --cor_100: #313131;
+        --cor_50: #1a1a1a;
+        --cor_0: rgb(15, 15, 15);
+    }
+
 /*Configuracoes gerais*/
 body{
     color: var(--cor_0) ;
@@ -382,8 +398,8 @@ footer p{
 
 /*Configuracao da pagina de biblioteca*/
 #section-biblioteca {
-    color: white;
-    background-color: #1a1a1a;
+    color:var(--cor_0);
+    background-color:var(--cor_1000);
     display: flex;
     gap: 40px;
     flex-direction: column;
@@ -434,8 +450,8 @@ footer p{
 #section-quemsomos {
     font-size: 16px;
     font-family: "New Rocker", sans-serif;
-    color: white;
-    background-color: #1a1a1a;    
+    color: var(--cor_0);
+    background-color:var(--cor_1000);    
     display: flex;
     flex-direction: column;
     align-items: center;
