@@ -35,10 +35,23 @@ Espera-se que o aluno consiga executar as seguites atividades:
  * Implementar um design com a manipulação do modelo de caixa dos elementos, além de tamanhos e cores das fontes;
  * Tentar implementar o uso de flex-box em ao menos uma das telas.
 ### Organização 
- * Uso do Github para getão do projeto 
+ * Uso do Github para gestão do projeto 
  * Uso do Discord para comunicação da equipe. 
 ### Ao final da sprint:
  * O projeto deve apresentar um design intuitivo, claro e objetivo, pensado na experiência do usuário 
+
+## Sprint IV - Telas
+Espera-se que o aluno consiga executar as seguites atividades: 
+### Desenvolvimento 
+ * Manipulação da DOM via JS; 
+ * Validação de formulário;
+ * Renderização dinâmica de elementos em pelo menos uma página.
+### Organização 
+ * Uso do Github para gestão do projeto 
+ * Uso do Discord para comunicação da equipe. 
+### Ao final da sprint:
+ * O site deve ter pelo menos uma página com conteúdo renderizado de forma dinâmica com JavaScript;
+ * O site deve ter pelo menos dois formulários com validações. 
 
 
 ## :handshake: Membros
