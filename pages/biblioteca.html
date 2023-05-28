@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=New Rocker">
     <script src="../scripts/iluminacao.js" defer></script>
+    <script src="/scripts/player.js"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
     <title>Rock Music - Biblioteca</title>
 </head>
@@ -60,78 +61,7 @@
                 <iframe src="https://www.youtube.com/embed/nrIPxlFzDi0?autoplay=12" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
         </div>
-    </section>    
-    <script>
-        // Obtenha todos os iframes de vídeo
-        const videoFrames = document.querySelectorAll('iframe');
-
-        // Variável para controlar o índice atual do vídeo
-        let currentVideoIndex = 0;
-
-        // Função para reproduzir o próximo vídeo
-        function playNextVideo() {
-            // Pausa o vídeo atual
-            videoFrames[currentVideoIndex].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
-
-            // Incrementa o índice
-            currentVideoIndex++;
-
-            // Verifica se chegou ao fim da lista de vídeos
-            if (currentVideoIndex >= videoFrames.length) {
-                // Reinicia o índice para repetir a reprodução
-                currentVideoIndex = 0;
-            }
-
-            // Inicia o próximo vídeo
-            videoFrames[currentVideoIndex].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
-        }
-
-        // Adiciona um ouvinte de evento quando um vídeo termina de reproduzir
-        function onVideoEnded() {
-            playNextVideo();
-        }
-
-        // Adiciona o ouvinte de evento para cada vídeo
-        videoFrames.forEach((frame) => {
-            frame.addEventListener('ended', onVideoEnded);
-        });
-
-        // Inicia a reprodução do primeiro vídeo
-        videoFrames[currentVideoIndex].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
-    </script>
-    <script>
-        // Função para tocar todos os vídeos na ordem em que aparecem
-        function playAllVideos() {
-            // Inicia a reprodução do primeiro vídeo
-            videoFrames[0].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
-
-            // Adiciona um ouvinte de evento quando um vídeo termina de reproduzir
-            function onVideoEnded() {
-                // Pausa o vídeo atual
-                videoFrames[currentVideoIndex].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
-
-                // Incrementa o índice
-                currentVideoIndex++;
-
-                // Verifica se chegou ao fim da lista de vídeos
-                if (currentVideoIndex >= videoFrames.length) {
-                    // Reinicia o índice para repetir a reprodução
-                    currentVideoIndex = 0;
-                }
-
-                // Inicia o próximo vídeo
-                videoFrames[currentVideoIndex].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
-            }
-
-            // Adiciona o ouvinte de evento para cada vídeo
-            videoFrames.forEach((frame) => {
-                frame.addEventListener('ended', onVideoEnded);
-            });
-        }
-
-        // Chama a função para tocar todos os vídeos
-        playAllVideos();
-    </script>
+    </section>  
     <hr class="linha-footer">   
     <footer>
         <p>Site desenvolvido para fins completamente educacionais</p>
