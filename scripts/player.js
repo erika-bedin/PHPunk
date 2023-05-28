@@ -1,65 +1,36 @@
-const videoList = [
-  '6NXnxTNIWkc',
-  'Lo2qQmj0_h4',
-  'JkK8g6FMEXE',
-  'TAqZb52sgpU',
-  '9BMwcO6_hyA',
-  'CD-E-LDc384',
-  '8SbUC-UaAxE',
-  'bWXazVhlyxQ',
-  'rn_YodiJO6k',
-  'egMWlD3fLJ8',
-  '6Ejga4kJUts',
-  'nrIPxlFzDi0'
-];
+// Obtenha todos os iframes de vídeo
+const videoFrames = document.querySelectorAll('iframe');
 
+// Variável para controlar o índice atual do vídeo
 let currentVideoIndex = 0;
-let players = [];
 
-function createYouTubePlayer(videoId, containerId) {
-  return new YT.Player(containerId, {
-    height: '360',
-    width: '640',
-    videoId: videoId,
-    events: {
-      onReady: onPlayerReady,
-      onStateChange: onPlayerStateChange
+// Função para reproduzir o próximo vídeo
+function playNextVideo() {
+    // Pausa o vídeo atual
+    videoFrames[currentVideoIndex].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+
+    // Incrementa o índice
+    currentVideoIndex++;
+
+    // Verifica se chegou ao fim da lista de vídeos
+    if (currentVideoIndex >= videoFrames.length) {
+        // Reinicia o índice para repetir a reprodução
+        currentVideoIndex = 0;
     }
-  });
+
+    // Inicia o próximo vídeo
+    videoFrames[currentVideoIndex].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
 }
 
-function onPlayerReady(event) {
-  event.target.playVideo();
+// Adiciona um ouvinte de evento quando um vídeo termina de reproduzir
+function onVideoEnded() {
+    playNextVideo();
 }
 
-function onPlayerStateChange(event) {
-  if (event.data === YT.PlayerState.ENDED) {
-    playNextVideo(event.target);
-  }
-}
+// Adiciona o ouvinte de evento para cada vídeo
+videoFrames.forEach((frame) => {
+    frame.addEventListener('ended', onVideoEnded);
+});
 
-function playNextVideo(player) {
-  player.stopVideo();
-  currentVideoIndex++;
-
-  if (currentVideoIndex >= videoList.length) {
-    currentVideoIndex = 0;
-  }
-
-  player.loadVideoById(videoList[currentVideoIndex]);
-}
-
-function loadYouTubeAPI() {
-  const tag = document.createElement('script');
-  tag.src = 'https://www.youtube.com/iframe_api';
-  const firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-  window.onYouTubeIframeAPIReady = function() {
-    players.push(createYouTubePlayer(videoList[currentVideoIndex], 'videoPlayer1'));
-    players.push(createYouTubePlayer(videoList[currentVideoIndex], 'videoPlayer2'));
-    players.push(createYouTubePlayer(videoList[currentVideoIndex], 'videoPlayer3'));
-  };
-}
-
-loadYouTubeAPI();
+// Inicia a reprodução do primeiro vídeo
+videoFrames[currentVideoIndex].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
