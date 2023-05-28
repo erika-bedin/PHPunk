@@ -1,25 +1,35 @@
 // Array contendo os IDs dos vídeos a serem reproduzidos
-const videoList = [
+const videoList1 = [
   '6NXnxTNIWkc',
   'Lo2qQmj0_h4',
-  'JkK8g6FMEXE',
-  'TAqZb52sgpU',
-  '9BMwcO6_hyA',
-  'CD-E-LDc384',
-  '8SbUC-UaAxE',
-  'bWXazVhlyxQ',
-  'rn_YodiJO6k',
-  'egMWlD3fLJ8',
-  '6Ejga4kJUts',
-  'nrIPxlFzDi0'
+  'JkK8g6FMEXE'
 ];
 
-// Variável para controlar o índice atual do vídeo
-let currentVideoIndex = 0;
+const videoList2 = [
+  'TAqZb52sgpU',
+  '9BMwcO6_hyA',
+  'CD-E-LDc384'
+];
+
+const videoList3 = [
+  '8SbUC-UaAxE',
+  'bWXazVhlyxQ',
+  'rn_YodiJO6k'
+];
+
+// Variáveis para controlar o índice atual de cada vídeo
+let currentVideoIndex1 = 0;
+let currentVideoIndex2 = 0;
+let currentVideoIndex3 = 0;
+
+// Variáveis para os players do YouTube
+let player1;
+let player2;
+let player3;
 
 // Função para criar o player do YouTube
-function createYouTubePlayer(videoId) {
-  return new YT.Player('videoPlayer', {
+function createYouTubePlayer(videoId, elementId) {
+  return new YT.Player(elementId, {
     height: '360',
     width: '640',
     videoId: videoId,
@@ -40,14 +50,27 @@ function onPlayerReady(event) {
 function onPlayerStateChange(event) {
   if (event.data === YT.PlayerState.ENDED) {
     // Vídeo terminou de reproduzir, passa para o próximo vídeo
-    playNextVideo();
+    playNextVideo(event.target);
   }
 }
 
 // Função para reproduzir o próximo vídeo
-function playNextVideo() {
+function playNextVideo(player) {
   // Pausa o vídeo atual
   player.stopVideo();
+
+  // Determina qual lista de vídeos e índice usar com base no elemento pai
+  let videoList, currentVideoIndex;
+  if (player.getIframe().parentNode.id === 'videoPlayer1') {
+    videoList = videoList1;
+    currentVideoIndex = currentVideoIndex1;
+  } else if (player.getIframe().parentNode.id === 'videoPlayer2') {
+    videoList = videoList2;
+    currentVideoIndex = currentVideoIndex2;
+  } else if (player.getIframe().parentNode.id === 'videoPlayer3') {
+    videoList = videoList3;
+    currentVideoIndex = currentVideoIndex3;
+  }
 
   // Incrementa o índice
   currentVideoIndex++;
@@ -62,7 +85,7 @@ function playNextVideo() {
   player.loadVideoById(videoList[currentVideoIndex]);
 }
 
-// Carrega a API do YouTube e inicia a reprodução do primeiro vídeo
+// Carrega a API do YouTube e inicia a reprodução dos vídeos
 function loadYouTubeAPI() {
   // Cria um script para carregar a API do YouTube
   const tag = document.createElement('script');
@@ -72,8 +95,10 @@ function loadYouTubeAPI() {
 
   // Chama a função onYouTubeIframeAPIReady quando a API estiver pronta
   window.onYouTubeIframeAPIReady = function() {
-    // Cria o player do YouTube com o primeiro vídeo
-    player = createYouTubePlayer(videoList[currentVideoIndex]);
+    // Cria os players do YouTube para cada lista de vídeos
+    player1 = createYouTubePlayer(videoList1[currentVideoIndex1], 'videoPlayer1');
+    player2 = createYouTubePlayer(videoList2[currentVideoIndex2], 'videoPlayer2');
+    player3 = createYouTubePlayer(videoList3[currentVideoIndex3], 'videoPlayer3');
   };
 }
 
