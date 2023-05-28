@@ -2,30 +2,28 @@
 const videoList1 = [
   '6NXnxTNIWkc',
   'Lo2qQmj0_h4',
-  'JkK8g6FMEXE'
+  'JkK8g6FMEXE',
+  // outros vídeos...
 ];
 
 const videoList2 = [
   'TAqZb52sgpU',
   '9BMwcO6_hyA',
-  'CD-E-LDc384'
+  'CD-E-LDc384',
+  // outros vídeos...
 ];
 
 const videoList3 = [
   '8SbUC-UaAxE',
   'bWXazVhlyxQ',
-  'rn_YodiJO6k'
+  'rn_YodiJO6k',
+  // outros vídeos...
 ];
 
-// Variáveis para controlar o índice atual de cada vídeo
+// Variáveis para controlar o índice atual dos vídeos
 let currentVideoIndex1 = 0;
 let currentVideoIndex2 = 0;
 let currentVideoIndex3 = 0;
-
-// Variáveis para os players do YouTube
-let player1;
-let player2;
-let player3;
 
 // Função para criar o player do YouTube
 function createYouTubePlayer(videoId, elementId) {
@@ -59,38 +57,37 @@ function playNextVideo(player) {
   // Pausa o vídeo atual
   player.stopVideo();
 
-  // Determina qual lista de vídeos e índice usar com base no elemento pai
-  let videoList, currentVideoIndex;
+  // Verifica qual player está sendo usado
   if (player.getIframe().parentNode.id === 'videoPlayer1') {
-    videoList = videoList1;
-    currentVideoIndex = currentVideoIndex1;
+    // Incrementa o índice do player 1
+    currentVideoIndex1++;
+    // Verifica se chegou ao fim da lista de vídeos do player 1
+    if (currentVideoIndex1 >= videoList1.length) {
+      // Reinicia o índice para repetir a reprodução
+      currentVideoIndex1 = 0;
+    }
+    // Carrega e reproduz o próximo vídeo do player 1
+    player.loadVideoById(videoList1[currentVideoIndex1]);
   } else if (player.getIframe().parentNode.id === 'videoPlayer2') {
-    videoList = videoList2;
-    currentVideoIndex = currentVideoIndex2;
+    // Incrementa o índice do player 2
+    currentVideoIndex2++;
+    // Verifica se chegou ao fim da lista de vídeos do player 2
+    if (currentVideoIndex2 >= videoList2.length) {
+      // Reinicia o índice para repetir a reprodução
+      currentVideoIndex2 = 0;
+    }
+    // Carrega e reproduz o próximo vídeo do player 2
+    player.loadVideoById(videoList2[currentVideoIndex2]);
   } else if (player.getIframe().parentNode.id === 'videoPlayer3') {
-    videoList = videoList3;
-    currentVideoIndex = currentVideoIndex3;
-  }
-
-  // Incrementa o índice
-  currentVideoIndex++;
-
-  // Verifica se chegou ao fim da lista de vídeos
-  if (currentVideoIndex >= videoList.length) {
-    // Reinicia o índice para repetir a reprodução
-    currentVideoIndex = 0;
-  }
-
-  // Carrega e reproduz o próximo vídeo
-  player.loadVideoById(videoList[currentVideoIndex]);
-
-  // Atualiza o índice atual
-  if (player.getIframe().parentNode.id === 'videoPlayer1') {
-    currentVideoIndex1 = currentVideoIndex;
-  } else if (player.getIframe().parentNode.id === 'videoPlayer2') {
-    currentVideoIndex2 = currentVideoIndex;
-  } else if (player.getIframe().parentNode.id === 'videoPlayer3') {
-    currentVideoIndex3 = currentVideoIndex;
+    // Incrementa o índice do player 3
+    currentVideoIndex3++;
+    // Verifica se chegou ao fim da lista de vídeos do player 3
+    if (currentVideoIndex3 >= videoList3.length) {
+      // Reinicia o índice para repetir a reprodução
+      currentVideoIndex3 = 0;
+    }
+    // Carrega e reproduz o próximo vídeo do player 3
+    player.loadVideoById(videoList3[currentVideoIndex3]);
   }
 }
 
@@ -104,10 +101,10 @@ function loadYouTubeAPI() {
 
   // Chama a função onYouTubeIframeAPIReady quando a API estiver pronta
   window.onYouTubeIframeAPIReady = function() {
-    // Cria os players do YouTube para cada lista de vídeos
-    player1 = createYouTubePlayer(videoList1[currentVideoIndex1], 'videoPlayer1');
-    player2 = createYouTubePlayer(videoList2[currentVideoIndex2], 'videoPlayer2');
-    player3 = createYouTubePlayer(videoList3[currentVideoIndex3], 'videoPlayer3');
+    // Cria os players do YouTube para os três vídeos
+    const player1 = createYouTubePlayer(videoList1[currentVideoIndex1], 'videoPlayer1');
+    const player2 = createYouTubePlayer(videoList2[currentVideoIndex2], 'videoPlayer2');
+    const player3 = createYouTubePlayer(videoList3[currentVideoIndex3], 'videoPlayer3');
   };
 }
 
