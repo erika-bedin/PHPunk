@@ -1,36 +1,40 @@
-// Obtenha todos os iframes de vídeo
-const videoFrames = document.querySelectorAll('iframe');
+// Variáveis globais
+let player;
 
-// Variável para controlar o índice atual do vídeo
-let currentVideoIndex = 0;
+// Função chamada quando a API do YouTube estiver pronta
+function onYouTubeIframeAPIReady() {
+  // Cria o player do YouTube
+  player = new YT.Player('player', {
+    events: {
+      'onReady': onPlayerReady,
+      'onStateChange': onPlayerStateChange
+    }
+  });
+}
+
+// Função chamada quando o player estiver pronto
+function onPlayerReady(event) {
+  // Inicia a reprodução do primeiro vídeo
+  event.target.playVideo();
+}
+
+// Função chamada quando o estado do player mudar
+function onPlayerStateChange(event) {
+  if (event.data === YT.PlayerState.ENDED) {
+    // Vídeo terminou de reproduzir, passa para o próximo vídeo
+    playNextVideo();
+  }
+}
 
 // Função para reproduzir o próximo vídeo
 function playNextVideo() {
-    // Pausa o vídeo atual
-    videoFrames[currentVideoIndex].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+  // Pausa o vídeo atual
+  player.pauseVideo();
 
-    // Incrementa o índice
-    currentVideoIndex++;
+  // Altere o VIDEO_ID para o ID do próximo vídeo
+  const nextVideoId = 'NEW_VIDEO_ID';
 
-    // Verifica se chegou ao fim da lista de vídeos
-    if (currentVideoIndex >= videoFrames.length) {
-        // Reinicia o índice para repetir a reprodução
-        currentVideoIndex = 0;
-    }
-
-    // Inicia o próximo vídeo
-    videoFrames[currentVideoIndex].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+  // Carrega e reproduz o próximo vídeo
+  player.loadVideoById(nextVideoId);
+  player.playVideo();
 }
-
-// Adiciona um ouvinte de evento quando um vídeo termina de reproduzir
-function onVideoEnded() {
-    playNextVideo();
-}
-
-// Adiciona o ouvinte de evento para cada vídeo
-videoFrames.forEach((frame) => {
-    frame.addEventListener('ended', onVideoEnded);
-});
-
-// Inicia a reprodução do primeiro vídeo
-videoFrames[currentVideoIndex].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
