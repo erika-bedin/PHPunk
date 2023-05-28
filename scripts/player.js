@@ -83,6 +83,15 @@ function playNextVideo(player) {
 
   // Carrega e reproduz o próximo vídeo
   player.loadVideoById(videoList[currentVideoIndex]);
+
+  // Atualiza o índice atual
+  if (player.getIframe().parentNode.id === 'videoPlayer1') {
+    currentVideoIndex1 = currentVideoIndex;
+  } else if (player.getIframe().parentNode.id === 'videoPlayer2') {
+    currentVideoIndex2 = currentVideoIndex;
+  } else if (player.getIframe().parentNode.id === 'videoPlayer3') {
+    currentVideoIndex3 = currentVideoIndex;
+  }
 }
 
 // Carrega a API do YouTube e inicia a reprodução dos vídeos
