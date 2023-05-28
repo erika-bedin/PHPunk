@@ -1,36 +1,74 @@
-// Obtenha todos os iframes de vídeo
-const videoFrames = document.querySelectorAll('iframe');
-
-// Variável para controlar o índice atual do vídeo
+// Variáveis globais para armazenar o objeto do player e o índice atual do vídeo
+let player;
 let currentVideoIndex = 0;
+
+// Função para criar o objeto do player do YouTube
+function onYouTubeIframeAPIReady() {
+  // Cria o objeto do player
+  player = new YT.Player('videoPlayer', {
+    height: '360',
+    width: '640',
+    playerVars: {
+      'autoplay': 1,
+      'controls': 0,
+      'rel': 0,
+      'showinfo': 0
+    },
+    events: {
+      'onReady': onPlayerReady,
+      'onStateChange': onPlayerStateChange
+    }
+  });
+}
+
+// Função chamada quando o player do YouTube estiver pronto
+function onPlayerReady(event) {
+  // Inicia a reprodução do primeiro vídeo
+  event.target.playVideo();
+}
+
+// Função chamada quando o estado do player do YouTube mudar
+function onPlayerStateChange(event) {
+  // Verifica se o vídeo atual terminou de reproduzir
+  if (event.data === YT.PlayerState.ENDED) {
+    // Chama a função para reproduzir o próximo vídeo
+    playNextVideo();
+  }
+}
 
 // Função para reproduzir o próximo vídeo
 function playNextVideo() {
-    // Pausa o vídeo atual
-    videoFrames[currentVideoIndex].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+  // Pausa o vídeo atual
+  player.pauseVideo();
 
-    // Incrementa o índice
-    currentVideoIndex++;
+  // Incrementa o índice
+  currentVideoIndex++;
 
-    // Verifica se chegou ao fim da lista de vídeos
-    if (currentVideoIndex >= videoFrames.length) {
-        // Reinicia o índice para repetir a reprodução
-        currentVideoIndex = 0;
-    }
+  // Verifica se chegou ao fim da lista de vídeos
+  if (currentVideoIndex >= videoList.length) {
+    // Reinicia o índice para repetir a reprodução
+    currentVideoIndex = 0;
+  }
 
-    // Inicia o próximo vídeo
-    videoFrames[currentVideoIndex].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+  // Carrega e reproduz o próximo vídeo
+  player.loadVideoById(videoList[currentVideoIndex]);
 }
 
-// Adiciona um ouvinte de evento quando um vídeo termina de reproduzir
-function onVideoEnded() {
-    playNextVideo();
-}
+// Array com os IDs dos vídeos a serem reproduzidos
+const videoList = [
+  '6NXnxTNIWkc',
+  'Lo2qQmj0_h4',
+  'JkK8g6FMEXE',
+  'TAqZb52sgpU',
+  '9BMwcO6_hyA',
+  'CD-E-LDc384',
+  '8SbUC-UaAxE',
+  'bWXazVhlyxQ',
+  'rn_YodiJO6k',
+  'egMWlD3fLJ8',
+  '6Ejga4kJUts',
+  'nrIPxlFzDi0'
+];
 
-// Adiciona o ouvinte de evento para cada vídeo
-videoFrames.forEach((frame) => {
-    frame.addEventListener('ended', onVideoEnded);
-});
-
-// Inicia a reprodução do primeiro vídeo
-videoFrames[currentVideoIndex].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+// Chama a função para carregar a API do YouTube
+onYouTubeIframeAPIReady();
