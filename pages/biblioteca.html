@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=New Rocker">
     <script src="../scripts/iluminacao.js" defer></script>
-    <script src="../scripts/player_automatico.js"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
     <title>Rock Music - Biblioteca</title>
 </head>
@@ -43,7 +42,7 @@
         <div class="container-mais-ouvidos">
             <h3>Mais ouvidos</h3>
             <div class="videos-container-cards">
-                <iframe src="https://www.youtube.com/embed/9BMwcO6_hyA?autoplay=5" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/9BMwcO6_hyA?autoplay=5" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen autoplay></iframe>
 
                 <iframe src="https://www.youtube.com/embed/CD-E-LDc384?autoplay=6" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -62,6 +61,49 @@
             </div>
         </div>
     </section>  
+    <script>
+                // Variáveis globais
+        let player;
+
+        // Função chamada quando a API do YouTube estiver pronta
+        function onYouTubeIframeAPIReady() {
+        // Cria o player do YouTube
+        player = new YT.Player('player', {
+            events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+            }
+        });
+        }
+
+        // Função chamada quando o player estiver pronto
+        function onPlayerReady(event) {
+        // Inicia a reprodução do primeiro vídeo
+        event.target.playVideo();
+        }
+
+        // Função chamada quando o estado do player mudar
+        function onPlayerStateChange(event) {
+        if (event.data === YT.PlayerState.ENDED) {
+            // Vídeo terminou de reproduzir, passa para o próximo vídeo
+            playNextVideo();
+        }
+        }
+
+        // Função para reproduzir o próximo vídeo
+        function playNextVideo() {
+        // Pausa o vídeo atual
+        player.pauseVideo();
+
+        // Altere o VIDEO_ID para o ID do próximo vídeo
+        const nextVideoId = 'Lo2qQmj0_h4';
+                            'JkK8g6FMEXE';
+
+        // Carrega e reproduz o próximo vídeo
+        player.loadVideoById(nextVideoId);
+        player.playVideo();
+        }
+    </script>
     <hr class="linha-footer">   
     <footer>
         <p>Site desenvolvido para fins completamente educacionais</p>
