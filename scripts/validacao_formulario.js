@@ -71,7 +71,7 @@ function verificaEmail(){
         validaErro(email_Input, "Preencha o campo de E-mail")
     }
 
-    else if(valor_email.match(/[@]/) && valor_email.match(/[.com]/){
+    else if(valor_email.match(/[@]/) && valor_email.match(/[.com]/)){
         validaSucesso(email_Input);  
     }
 
