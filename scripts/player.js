@@ -1,51 +1,75 @@
-// Variáveis globais
-let player;
+function loadYouTubeAPI() {
+  const tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  const firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+}
 
-// Função chamada quando a API do YouTube estiver pronta
-function onYouTubeIframeAPIReady() {
-  // Cria o player do YouTube
-  player = new YT.Player('player', {
+let players = [];
+let currentVideoIndex = 0;
+
+function createPlayer(playerId, videoUrl) {
+  return new YT.Player(playerId, {
+    height: '360',
+    width: '640',
+    videoId: getVideoId(videoUrl),
     events: {
       'onReady': onPlayerReady,
       'onStateChange': onPlayerStateChange
+    },
+    playerVars: {
+      'autoplay': 0,
+      'controls': 1,
+      'disablekb': 1,
+      'fs': 0,
+      'iv_load_policy': 3,
+      'modestbranding': 1,
+      'rel': 0,
+      'showinfo': 0
     }
   });
 }
 
-// Função chamada quando o player estiver pronto
-function onPlayerReady(event) {
-  // Inicia a reprodução do primeiro vídeo
-  event.target.playVideo();
+function onYouTubeIframeAPIReady() {
+  players.push(createPlayer('youtube-player1', 'https://www.youtube.com/embed/6NXnxTNIWkc'));
+  players.push(createPlayer('youtube-player2', 'https://www.youtube.com/embed/Lo2qQmj0_h4'));
+  players.push(createPlayer('youtube-player3', 'https://www.youtube.com/embed/JkK8g6FMEXE'));
+  players.push(createPlayer('youtube-player4', 'https://www.youtube.com/embed/TAqZb52sgpU'));
+  
+  players.push(createPlayer('youtube-player-mais-ouvidos1', 'https://www.youtube.com/embed/9BMwcO6_hyA'));
+  players.push(createPlayer('youtube-player-mais-ouvidos2', 'https://www.youtube.com/embed/CD-E-LDc384'));
+  players.push(createPlayer('youtube-player-mais-ouvidos3', 'https://www.youtube.com/embed/8SbUC-UaAxE'));
+  players.push(createPlayer('youtube-player-mais-ouvidos4', 'https://www.youtube.com/embed/bWXazVhlyxQ'));
+  
+  players.push(createPlayer('youtube-player-feito-para-voce1', 'https://www.youtube.com/embed/rn_YodiJO6k'));
+  players.push(createPlayer('youtube-player-feito-para-voce2', 'https://www.youtube.com/embed/egMWlD3fLJ8'));
+  players.push(createPlayer('youtube-player-feito-para-voce3', 'https://www.youtube.com/embed/6Ejga4kJUts'));
+  players.push(createPlayer('youtube-player-feito-para-voce4', 'https://www.youtube.com/embed/nrIPxlFzDi0'));
+
+  playNextVideo();
 }
 
-// Função chamada quando o estado do player mudar
+function onPlayerReady(event) {
+  // Nada a ser feito
+}
+
 function onPlayerStateChange(event) {
   if (event.data === YT.PlayerState.ENDED) {
-    // Vídeo terminou de reproduzir, passa para o próximo vídeo
     playNextVideo();
   }
 }
 
-// Função para reproduzir o próximo vídeo
+function getVideoId(url) {
+  const match = url.match(/(?:\/|%3D|v=|vi=)([0-9A-Za-z-_]{11})(?:[%#?&]|$)/);
+  return match ? match[1] : null;
+}
+
 function playNextVideo() {
-  // Pausa o vídeo atual
-  player.pauseVideo();
-
-  // Obtém todos os elementos <iframe> presentes na página
-  const iframes = document.getElementsByTagName('iframe');
-
-  // Encontra o próximo vídeo a ser reproduzido
-  let foundCurrentVideo = false;
-  for (let i = 0; i < iframes.length; i++) {
-    const iframe = iframes[i];
-    if (iframe === player.getIframe()) {
-      foundCurrentVideo = true;
-    } else if (foundCurrentVideo) {
-      // Encontrou o próximo vídeo, obtém o ID e reproduz
-      const nextVideoId = iframe.src.split('?autoplay=')[1];
-      player.loadVideoById(nextVideoId);
-      player.playVideo();
-      break;
-    }
+  const currentPlayer = players[currentVideoIndex];
+  if (currentPlayer) {
+    currentPlayer.playVideo();
+    currentVideoIndex = (currentVideoIndex + 1) % players.length;
   }
 }
+
+loadYouTubeAPI();

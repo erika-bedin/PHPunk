@@ -30,35 +30,29 @@
     <section id="section-biblioteca">
         <div class="primeiro-container-biblioteca">
             <h1>Biblioteca</h1>            
-            <div class="videos-container-cards" id="player-container">
-                <iframe src="https://www.youtube.com/embed/6NXnxTNIWkc?autoplay" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                
-                <iframe src="https://www.youtube.com/embed/Lo2qQmj0_h4?autoplay" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                
-                <iframe src="https://www.youtube.com/embed/JkK8g6FMEXE?autoplay" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                
-                <iframe src="https://www.youtube.com/embed/TAqZb52sgpU?autoplay" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div class="videos-container-cards">
+                <div id="youtube-player1"></div>
+                <div id="youtube-player2"></div>
+                <div id="youtube-player3"></div>
+                <div id="youtube-player4"></div>
             </div>            
         </div>
         <div class="container-mais-ouvidos">
             <h3>Mais ouvidos</h3>
             <div class="videos-container-cards">
-                <iframe src="https://www.youtube.com/embed/9BMwcO6_hyA?autoplay" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen autoplay></iframe>
-
-                <iframe src="https://www.youtube.com/embed/CD-E-LDc384?autoplay" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen autoplay></iframe>
-
-                <iframe src="https://www.youtube.com/embed/8SbUC-UaAxE?autoplay" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen autoplay></iframe>
-
-                <iframe src="https://www.youtube.com/embed/bWXazVhlyxQ?autoplay" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen autplay></iframe>
+                <div id="youtube-player-mais-ouvidos1"></div>
+                <div id="youtube-player-mais-ouvidos2"></div>
+                <div id="youtube-player-mais-ouvidos3"></div>
+                <div id="youtube-player-mais-ouvidos4"></div>
             </div>
         </div>
         <div class="container-feito-para-voce">
             <h3>Feito para você</h3>
             <div class="videos-container-cards">
-                <iframe src="https://www.youtube.com/embed/rn_YodiJO6k?autoplay" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen autoplay></iframe>
-                <iframe src="https://www.youtube.com/embed/egMWlD3fLJ8?autoplay" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen autoplay></iframe>
-                <iframe src="https://www.youtube.com/embed/6Ejga4kJUts?autoplay" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen autoplay></iframe>
-                <iframe src="https://www.youtube.com/embed/nrIPxlFzDi0?autoplay" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen autoplay></iframe>
+                <div id="youtube-player-feito-para-voce1"></div>
+                <div id="youtube-player-feito-para-voce2"></div>
+                <div id="youtube-player-feito-para-voce3"></div>
+                <div id="youtube-player-feito-para-voce4"></div>
             </div>
         </div>
     </section>  
@@ -68,24 +62,89 @@
         <div class="container-lista-footer">
             <ul class="lista-footer">
                 <li><a href="">Políticas de privacidade</a></li>
-                <li><a href="">Termos e condições</a></li>
+                <li><a href="">Termos de uso</a></li>
+                <li><a href="">Contato</a></li>
             </ul>
-            <ul class="lista-footer">
-                <li><a href="">História</a></li>
-                <li><a href="">Patrocinadores</a></li>
-                <li><a href="">Trabalhe Conosco</a></li>
-            </ul>
-            <ul class="lista-footer">
-                <li><a href="">Nossos Produtos</a></li>
-                <li><a href="">Promoções</a></li>
-                <li><a href="">Seja membro do club <strong>PHPunk</strong></a></li>
-            </ul>
-        </div>
-        <div class="container-redesSociais">
-            <a href="https://www.instagram.com/"><img src="../imgs/insta.png" alt="Imagem do Instagram"></a>
-            <a href="https://www.facebook.com/"><img src="../imgs/face.png" alt="Imagem do Facebook"></a>
-            <a href="https://www.twitter.com/"><img src="../imgs/Twitter_logo.png" alt="Imagem do Twitter"></a>
         </div>
     </footer>
+    <script>
+      function loadYouTubeAPI() {
+        const tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      }
+
+      let players = [];
+      let currentVideoIndex = 0;
+
+      function createPlayer(playerId, videoUrl, autoplayDelay) {
+        return new YT.Player(playerId, {
+          height: '360',
+          width: '640',
+          videoId: getVideoId(videoUrl),
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          },
+          playerVars: {
+            'autoplay': 0,
+            'controls': 1,
+            'disablekb': 1,
+            'fs': 0,
+            'iv_load_policy': 3,
+            'modestbranding': 1,
+            'rel': 0,
+            'showinfo': 0,
+            'start': autoplayDelay
+          }
+        });
+      }
+
+      function onYouTubeIframeAPIReady() {
+        players.push(createPlayer('youtube-player1', 'https://www.youtube.com/embed/6NXnxTNIWkc', 0));
+        players.push(createPlayer('youtube-player2', 'https://www.youtube.com/embed/Lo2qQmj0_h4', 2));
+        players.push(createPlayer('youtube-player3', 'https://www.youtube.com/embed/JkK8g6FMEXE', 4));
+        players.push(createPlayer('youtube-player4', 'https://www.youtube.com/embed/TAqZb52sgpU', 6));
+
+        players.push(createPlayer('youtube-player-mais-ouvidos1', 'https://www.youtube.com/embed/9BMwcO6_hyA', 8));
+        players.push(createPlayer('youtube-player-mais-ouvidos2', 'https://www.youtube.com/embed/CD-E-LDc384', 10));
+        players.push(createPlayer('youtube-player-mais-ouvidos3', 'https://www.youtube.com/embed/8SbUC-UaAxE', 12));
+        players.push(createPlayer('youtube-player-mais-ouvidos4', 'https://www.youtube.com/embed/bWXazVhlyxQ', 14));
+
+        players.push(createPlayer('youtube-player-feito-para-voce1', 'https://www.youtube.com/embed/rn_YodiJO6k', 16));
+        players.push(createPlayer('youtube-player-feito-para-voce2', 'https://www.youtube.com/embed/egMWlD3fLJ8', 18));
+        players.push(createPlayer('youtube-player-feito-para-voce3', 'https://www.youtube.com/embed/6Ejga4kJUts', 20));
+        players.push(createPlayer('youtube-player-feito-para-voce4', 'https://www.youtube.com/embed/nrIPxlFzDi0', 22));
+      }
+
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+
+      function onPlayerStateChange(event) {
+        if (event.data === YT.PlayerState.ENDED) {
+          event.target.stopVideo();
+          playNextVideo();
+        }
+      }
+
+      function playNextVideo() {
+        const currentPlayer = players[currentVideoIndex];
+        currentPlayer.stopVideo();
+
+        currentVideoIndex = (currentVideoIndex + 1) % players.length;
+
+        const nextPlayer = players[currentVideoIndex];
+        nextPlayer.playVideo();
+      }
+
+      function getVideoId(url) {
+        const match = url.match(/(?:\/|%3D|v=|vi=)([0-9A-Za-z-_]{11})(?:[%#?&]|$)/);
+        return match ? match[1] : null;
+      }
+
+      loadYouTubeAPI();
+    </script>
 </body>
 </html>
