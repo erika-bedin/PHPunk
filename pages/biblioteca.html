@@ -103,87 +103,37 @@
         </div>
     </footer>
     <script>
-        // Função de inicialização da API do YouTube
         function onYouTubeIframeAPIReady() {
-            // Criação dos players para cada vídeo
-            var player1 = new YT.Player('video1', {
-                events: {
-                    'onReady': onPlayerReady
-                }
-            });
+        var players = []; // Array para armazenar os players
 
-            var player2 = new YT.Player('video2', {
-                events: {
-                    'onReady': onPlayerReady
-                }
-            });
-
-            // Adicione os demais players para os outros vídeos
-            var player3 = new YT.Player('video3', {
-                events: {
-                    'onReady': onPlayerReady
-                }
-            });
-
-            var player4 = new YT.Player('video4', {
-                events: {
-                    'onReady': onPlayerReady
-                }
-            });
-
-            var player5 = new YT.Player('video5', {
-                events: {
-                    'onReady': onPlayerReady
-                }
-            });
-
-            var player6 = new YT.Player('video6', {
-                events: {
-                    'onReady': onPlayerReady
-                }
-            });
-
-            var player7 = new YT.Player('video7', {
-                events: {
-                    'onReady': onPlayerReady
-                }
-            });
-
-            var player8 = new YT.Player('video8', {
-                events: {
-                    'onReady': onPlayerReady
-                }
-            });
-
-            var player9 = new YT.Player('video9', {
-                events: {
-                    'onReady': onPlayerReady
-                }
-            });
-
-            var player10 = new YT.Player('video10', {
-                events: {
-                    'onReady': onPlayerReady
-                }
-            });
-
-            var player11 = new YT.Player('video11', {
-                events: {
-                    'onReady': onPlayerReady
-                }
-            });
-
-            var player12 = new YT.Player('video12', {
-                events: {
-                    'onReady': onPlayerReady
-                }
-            });
-
-            // Função chamada quando o player estiver pronto
-            function onPlayerReady(event) {
-                event.target.playVideo(); // Inicia a reprodução do vídeo
-            }
+        // Função chamada quando o player estiver pronto
+        function onPlayerReady(event) {
+            event.target.playVideo(); // Inicia a reprodução do vídeo
         }
+
+        // Criação dos players para cada vídeo
+        function createPlayer(id) {
+            players[id] = new YT.Player('video' + id, {
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        // Chama a função createPlayer para cada vídeo
+        createPlayer(1);
+        createPlayer(2);
+        createPlayer(3);
+        createPlayer(4);
+        createPlayer(5);
+        createPlayer(6);
+        createPlayer(7);
+        createPlayer(8);
+        createPlayer(9);
+        createPlayer(10);
+        createPlayer(11);
+        createPlayer(12);
+    }
     </script>
 </body>
 </html>
