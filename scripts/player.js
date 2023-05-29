@@ -35,12 +35,9 @@ function onPlayerReady(event) {
 
 // Função chamada quando o estado do player mudar
 function onPlayerStateChange(event) {
-  if (event.data === YT.PlayerState.PLAYING) {
-    // Verifica se o vídeo chegou ao fim
-    if (player.getPlayerState() === YT.PlayerState.ENDED) {
-      // Vídeo terminou de reproduzir, passa para o próximo vídeo
-      playNextVideo();
-    }
+  if (event.data === YT.PlayerState.ENDED) {
+    // Vídeo terminou de reproduzir, passa para o próximo vídeo
+    playNextVideo();
   }
 }
 
