@@ -5,7 +5,7 @@ function loadYouTubeAPI() {
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 }
 
-let players = [];
+let players = []; 
 
 function createPlayer(playerId, videoUrl) {
   return new YT.Player(playerId, {
