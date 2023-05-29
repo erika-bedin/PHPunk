@@ -30,80 +30,52 @@
         <div class="primeiro-container-biblioteca">
             <h1>Biblioteca</h1>            
             <div class="videos-container-cards">
+                <div id="video1"></div>
                 <iframe src="https://www.youtube.com/embed/6NXnxTNIWkc?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 
+                <div id="video2"></div>
                 <iframe src="https://www.youtube.com/embed/Lo2qQmj0_h4?autoplay=2" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 
+                <div id="video3"></div>
                 <iframe src="https://www.youtube.com/embed/JkK8g6FMEXE?autoplay=3" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 
+                <div id="video4"></div>
                 <iframe src="https://www.youtube.com/embed/TAqZb52sgpU?autoplay=4" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>            
         </div>
         <div class="container-mais-ouvidos">
             <h3>Mais ouvidos</h3>
             <div class="videos-container-cards">
+                <div id="video5"></div>
                 <iframe src="https://www.youtube.com/embed/9BMwcO6_hyA?autoplay=5" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen autoplay></iframe>
-
+                
+                <div id="video6"></div>
                 <iframe src="https://www.youtube.com/embed/CD-E-LDc384?autoplay=6" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
+                
+                <div id="video7"></div>
                 <iframe src="https://www.youtube.com/embed/8SbUC-UaAxE?autoplay=7" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
+                
+                <div id="video8"></div>
                 <iframe src="https://www.youtube.com/embed/bWXazVhlyxQ?autoplay=8" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
         </div>
         <div class="container-feito-para-voce">
             <h3>Feito para você</h3>
             <div class="videos-container-cards">
+                <div id="video9"></div>
                 <iframe src="https://www.youtube.com/embed/rn_YodiJO6k?autoplay=9" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen autoplay></iframe>
+                
+                <div id="video10"></div>
                 <iframe src="https://www.youtube.com/embed/egMWlD3fLJ8?autoplay=10" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen autoplay></iframe>
+                
+                <div id="video11"></div>
                 <iframe src="https://www.youtube.com/embed/6Ejga4kJUts?autoplay=11" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen autoplay></iframe>
+                
+                <div id="video12"></div>
                 <iframe src="https://www.youtube.com/embed/nrIPxlFzDi0?autoplay=12" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen autoplay></iframe>
             </div>
         </div>
     </section>  
-    <script>
-                // Variáveis globais
-        let player;
-
-        // Função chamada quando a API do YouTube estiver pronta
-        function onYouTubeIframeAPIReady() {
-        // Cria o player do YouTube
-        player = new YT.Player('player', {
-            events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-            }
-        });
-        }
-
-        // Função chamada quando o player estiver pronto
-        function onPlayerReady(event) {
-        // Inicia a reprodução do primeiro vídeo
-        event.target.playVideo();
-        }
-
-        // Função chamada quando o estado do player mudar
-        function onPlayerStateChange(event) {
-        if (event.data === YT.PlayerState.ENDED) {
-            // Vídeo terminou de reproduzir, passa para o próximo vídeo
-            playNextVideo();
-        }
-        }
-
-        // Função para reproduzir o próximo vídeo
-        function playNextVideo() {
-        // Pausa o vídeo atual
-        player.pauseVideo();
-
-        // Altere o VIDEO_ID para o ID do próximo vídeo
-        const nextVideoId = 'Lo2qQmj0_h4';
-                            'JkK8g6FMEXE';
-
-        // Carrega e reproduz o próximo vídeo
-        player.loadVideoById(nextVideoId);
-        player.playVideo();
-        }
-    </script>
     <hr class="linha-footer">   
     <footer>
         <p>Site desenvolvido para fins completamente educacionais</p>
@@ -130,5 +102,89 @@
             <a href="https://www.twitter.com/"><img src="../imgs/Twitter_logo.png" alt="Imagem do Twitter"></a>
         </div>
     </footer>
+    <script>
+        // Função de inicialização da API do YouTube
+        function onYouTubeIframeAPIReady() {
+            // Criação dos players para cada vídeo
+            var player1 = new YT.Player('video1', {
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+
+            var player2 = new YT.Player('video2', {
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+
+            // Adicione os demais players para os outros vídeos
+            var player3 = new YT.Player('video3', {
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+
+            var player4 = new YT.Player('video4', {
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+
+            var player5 = new YT.Player('video5', {
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+
+            var player6 = new YT.Player('video6', {
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+
+            var player7 = new YT.Player('video7', {
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+
+            var player8 = new YT.Player('video8', {
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+
+            var player9 = new YT.Player('video9', {
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+
+            var player10 = new YT.Player('video10', {
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+
+            var player11 = new YT.Player('video11', {
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+
+            var player12 = new YT.Player('video12', {
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+
+            // Função chamada quando o player estiver pronto
+            function onPlayerReady(event) {
+                event.target.playVideo(); // Inicia a reprodução do vídeo
+            }
+        }
+    </script>
+    <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>
