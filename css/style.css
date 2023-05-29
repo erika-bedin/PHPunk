@@ -392,6 +392,13 @@ footer p{
     width: 75%;
 }
 
+.politicas-input-caontainer{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 10px;
+    align-items: center;
+}
+
 #section-index{
     align-items: center;
 }
