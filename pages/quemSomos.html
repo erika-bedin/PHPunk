@@ -99,74 +99,41 @@
     </section>
     <script>
         // Obtenha todos os iframes de vídeo
-        const videoFrames = document.querySelectorAll('iframe');
+const videoFrames = document.querySelectorAll('iframe');
 
-        // Variável para controlar o índice atual do vídeo
-        let currentVideoIndex = 0;
+// Variável para controlar o índice atual do vídeo
+let currentVideoIndex = 0;
 
-        // Função para reproduzir o próximo vídeo
-        function playNextVideo() {
-            // Pausa o vídeo atual
-            videoFrames[currentVideoIndex].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+// Função para reproduzir o próximo vídeo
+function playNextVideo() {
+    // Pausa o vídeo atual
+    videoFrames[currentVideoIndex].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
 
-            // Incrementa o índice
-            currentVideoIndex++;
+    // Incrementa o índice
+    currentVideoIndex++;
 
-            // Verifica se chegou ao fim da lista de vídeos
-            if (currentVideoIndex >= videoFrames.length) {
-                // Reinicia o índice para repetir a reprodução
-                currentVideoIndex = 0;
-            }
+    // Verifica se chegou ao fim da lista de vídeos
+    if (currentVideoIndex >= videoFrames.length) {
+        // Reinicia o índice para repetir a reprodução
+        currentVideoIndex = 0;
+    }
 
-            // Inicia o próximo vídeo
-            videoFrames[currentVideoIndex].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
-        }
+    // Inicia o próximo vídeo
+    videoFrames[currentVideoIndex].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+}
 
-        // Adiciona um ouvinte de evento quando um vídeo termina de reproduzir
-        function onVideoEnded() {
-            playNextVideo();
-        }
+// Adiciona um ouvinte de evento quando um vídeo termina de reproduzir
+function onVideoEnded() {
+    playNextVideo();
+}
 
-        // Adiciona o ouvinte de evento para cada vídeo
-        videoFrames.forEach((frame) => {
-            frame.addEventListener('ended', onVideoEnded);
-        });
+// Adiciona o ouvinte de evento para cada vídeo
+videoFrames.forEach((frame) => {
+    frame.addEventListener('ended', onVideoEnded);
+});
 
-        // Inicia a reprodução do primeiro vídeo
-        videoFrames[currentVideoIndex].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
-    </script>
-    <script>
-        // Função para tocar todos os vídeos na ordem em que aparecem
-        function playAllVideos() {
-            // Inicia a reprodução do primeiro vídeo
-            videoFrames[0].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
-
-            // Adiciona um ouvinte de evento quando um vídeo termina de reproduzir
-            function onVideoEnded() {
-                // Pausa o vídeo atual
-                videoFrames[currentVideoIndex].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
-
-                // Incrementa o índice
-                currentVideoIndex++;
-
-                // Verifica se chegou ao fim da lista de vídeos
-                if (currentVideoIndex >= videoFrames.length) {
-                    // Reinicia o índice para repetir a reprodução
-                    currentVideoIndex = 0;
-                }
-
-                // Inicia o próximo vídeo
-                videoFrames[currentVideoIndex].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
-            }
-
-            // Adiciona o ouvinte de evento para cada vídeo
-            videoFrames.forEach((frame) => {
-                frame.addEventListener('ended', onVideoEnded);
-            });
-        }
-
-        // Chama a função para tocar todos os vídeos
-        playAllVideos();
+// Inicia a reprodução do primeiro vídeo
+videoFrames[currentVideoIndex].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
     </script>
     <hr class="linha-footer">
     <footer>
