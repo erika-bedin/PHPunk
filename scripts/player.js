@@ -14,6 +14,7 @@ const videoIds = [
   '6Ejga4kJUts',
   'nrIPxlFzDi0'
 ]; // Lista de IDs dos vídeos
+let currentVideoIndex = 0;
 
 // Função chamada quando a API do YouTube estiver pronta
 function onYouTubeIframeAPIReady() {
@@ -29,29 +30,40 @@ function onYouTubeIframeAPIReady() {
 // Função chamada quando o player estiver pronto
 function onPlayerReady(event) {
   // Inicia a reprodução do primeiro vídeo
-  event.target.playVideo();
+  playVideo();
 }
 
 // Função chamada quando o estado do player mudar
 function onPlayerStateChange(event) {
-  if (event.data === YT.PlayerState.ENDED) {
-    // Vídeo terminou de reproduzir, passa para o próximo vídeo
-    playNextVideo();
+  if (event.data === YT.PlayerState.PLAYING) {
+    // Verifica se o vídeo chegou ao fim
+    if (player.getPlayerState() === YT.PlayerState.ENDED) {
+      // Vídeo terminou de reproduzir, passa para o próximo vídeo
+      playNextVideo();
+    }
   }
 }
 
 // Função para reproduzir o próximo vídeo
 function playNextVideo() {
-  // Pausa o vídeo atual
-  player.pauseVideo();
+  // Incrementa o índice do vídeo atual
+  currentVideoIndex++;
 
   // Verifica se há mais vídeos na lista
-  if (videoIds.length > 0) {
+  if (currentVideoIndex < videoIds.length) {
     // Obtém o ID do próximo vídeo
-    const nextVideoId = videoIds.shift(); // Remove e retorna o primeiro elemento da lista
+    const nextVideoId = videoIds[currentVideoIndex];
 
     // Carrega e reproduz o próximo vídeo
     player.loadVideoById(nextVideoId);
-    player.playVideo();
   }
+}
+
+// Função para iniciar a reprodução do vídeo atual
+function playVideo() {
+  // Obtém o ID do primeiro vídeo
+  const firstVideoId = videoIds[currentVideoIndex];
+
+  // Carrega e reproduz o primeiro vídeo
+  player.loadVideoById(firstVideoId);
 }
