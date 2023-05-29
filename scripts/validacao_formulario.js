@@ -71,15 +71,14 @@ function verificaEmail(){
         validaErro(email_Input, "Preencha o campo de E-mail")
     }
 
+    else if(valor_email.match(/[@]/) && valor_email.match(/[.com]/){
+        validaSucesso(email_Input);  
+    }
+
     else{
-        if(valor_email.match(/[@]/) && valor_email.match(/[.com]/)){
-            validaSucesso(email_Input)
-        }
-        else{
             validaErro(email_Input, "Insira um e-mail válido")
         }
     }
-}
 
 function validaTelefone(){
     const valor_telefone = telefone_input.value.trim();
