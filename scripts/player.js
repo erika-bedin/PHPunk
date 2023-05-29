@@ -6,8 +6,9 @@ function loadYouTubeAPI() {
 }
 
 let players = [];
+let currentVideoIndex = 0;
 
-function createPlayer(playerId, videoUrl, autoplayDelay) {
+function createPlayer(playerId, videoUrl) {
   return new YT.Player(playerId, {
     height: '360',
     width: '640',
@@ -24,42 +25,51 @@ function createPlayer(playerId, videoUrl, autoplayDelay) {
       'iv_load_policy': 3,
       'modestbranding': 1,
       'rel': 0,
-      'showinfo': 0,
-      'start': autoplayDelay
+      'showinfo': 0
     }
   });
 }
 
 function onYouTubeIframeAPIReady() {
-  players.push(createPlayer('youtube-player1', 'https://www.youtube.com/embed/6NXnxTNIWkc', 0));
-  players.push(createPlayer('youtube-player2', 'https://www.youtube.com/embed/Lo2qQmj0_h4', 2));
-  players.push(createPlayer('youtube-player3', 'https://www.youtube.com/embed/JkK8g6FMEXE', 4));
-  players.push(createPlayer('youtube-player4', 'https://www.youtube.com/embed/TAqZb52sgpU', 6));
+  players.push(createPlayer('youtube-player1', 'https://www.youtube.com/embed/6NXnxTNIWkc'));
+  players.push(createPlayer('youtube-player2', 'https://www.youtube.com/embed/Lo2qQmj0_h4'));
+  players.push(createPlayer('youtube-player3', 'https://www.youtube.com/embed/JkK8g6FMEXE'));
+  players.push(createPlayer('youtube-player4', 'https://www.youtube.com/embed/TAqZb52sgpU'));
+  
+  players.push(createPlayer('youtube-player-mais-ouvidos1', 'https://www.youtube.com/embed/9BMwcO6_hyA'));
+  players.push(createPlayer('youtube-player-mais-ouvidos2', 'https://www.youtube.com/embed/CD-E-LDc384'));
+  players.push(createPlayer('youtube-player-mais-ouvidos3', 'https://www.youtube.com/embed/8SbUC-UaAxE'));
+  players.push(createPlayer('youtube-player-mais-ouvidos4', 'https://www.youtube.com/embed/bWXazVhlyxQ'));
+  
+  players.push(createPlayer('youtube-player-feito-para-voce1', 'https://www.youtube.com/embed/rn_YodiJO6k'));
+  players.push(createPlayer('youtube-player-feito-para-voce2', 'https://www.youtube.com/embed/egMWlD3fLJ8'));
+  players.push(createPlayer('youtube-player-feito-para-voce3', 'https://www.youtube.com/embed/6Ejga4kJUts'));
+  players.push(createPlayer('youtube-player-feito-para-voce4', 'https://www.youtube.com/embed/nrIPxlFzDi0'));
 
-  players.push(createPlayer('youtube-player-mais-ouvidos1', 'https://www.youtube.com/embed/9BMwcO6_hyA', 8));
-  players.push(createPlayer('youtube-player-mais-ouvidos2', 'https://www.youtube.com/embed/CD-E-LDc384', 10));
-  players.push(createPlayer('youtube-player-mais-ouvidos3', 'https://www.youtube.com/embed/8SbUC-UaAxE', 12));
-  players.push(createPlayer('youtube-player-mais-ouvidos4', 'https://www.youtube.com/embed/bWXazVhlyxQ', 14));
-
-  players.push(createPlayer('youtube-player-feito-para-voce1', 'https://www.youtube.com/embed/rn_YodiJO6k', 16));
-  players.push(createPlayer('youtube-player-feito-para-voce2', 'https://www.youtube.com/embed/egMWlD3fLJ8', 18));
-  players.push(createPlayer('youtube-player-feito-para-voce3', 'https://www.youtube.com/embed/6Ejga4kJUts', 20));
-  players.push(createPlayer('youtube-player-feito-para-voce4', 'https://www.youtube.com/embed/nrIPxlFzDi0', 22));
+  playNextVideo();
 }
 
 function onPlayerReady(event) {
-  event.target.playVideo();
+  // Nada a ser feito
 }
 
 function onPlayerStateChange(event) {
   if (event.data === YT.PlayerState.ENDED) {
-    event.target.stopVideo();
+    playNextVideo();
   }
 }
 
 function getVideoId(url) {
   const match = url.match(/(?:\/|%3D|v=|vi=)([0-9A-Za-z-_]{11})(?:[%#?&]|$)/);
   return match ? match[1] : null;
+}
+
+function playNextVideo() {
+  const currentPlayer = players[currentVideoIndex];
+  if (currentPlayer) {
+    currentPlayer.playVideo();
+    currentVideoIndex = (currentVideoIndex + 1) % players.length;
+  }
 }
 
 loadYouTubeAPI();
