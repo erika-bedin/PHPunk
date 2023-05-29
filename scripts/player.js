@@ -1,20 +1,5 @@
 // Variáveis globais
 let player;
-const videoIds = [
-  '6NXnxTNIWkc',
-  'Lo2qQmj0_h4',
-  'JkK8g6FMEXE',
-  'TAqZb52sgpU',
-  '9BMwcO6_hyA',
-  'CD-E-LDc384',
-  '8SbUC-UaAxE',
-  'bWXazVhlyxQ',
-  'rn_YodiJO6k',
-  'egMWlD3fLJ8',
-  '6Ejga4kJUts',
-  'nrIPxlFzDi0'
-]; // Lista de IDs dos vídeos
-let currentVideoIndex = 0;
 
 // Função chamada quando a API do YouTube estiver pronta
 function onYouTubeIframeAPIReady() {
@@ -30,7 +15,7 @@ function onYouTubeIframeAPIReady() {
 // Função chamada quando o player estiver pronto
 function onPlayerReady(event) {
   // Inicia a reprodução do primeiro vídeo
-  playVideo();
+  event.target.playVideo();
 }
 
 // Função chamada quando o estado do player mudar
@@ -43,24 +28,24 @@ function onPlayerStateChange(event) {
 
 // Função para reproduzir o próximo vídeo
 function playNextVideo() {
-  // Incrementa o índice do vídeo atual
-  currentVideoIndex++;
+  // Pausa o vídeo atual
+  player.pauseVideo();
 
-  // Verifica se há mais vídeos na lista
-  if (currentVideoIndex < videoIds.length) {
-    // Obtém o ID do próximo vídeo
-    const nextVideoId = videoIds[currentVideoIndex];
+  // Obtém todos os elementos <iframe> presentes na página
+  const iframes = document.getElementsByTagName('iframe');
 
-    // Carrega e reproduz o próximo vídeo
-    player.loadVideoById(nextVideoId);
+  // Encontra o próximo vídeo a ser reproduzido
+  let foundCurrentVideo = false;
+  for (let i = 0; i < iframes.length; i++) {
+    const iframe = iframes[i];
+    if (iframe === player.getIframe()) {
+      foundCurrentVideo = true;
+    } else if (foundCurrentVideo) {
+      // Encontrou o próximo vídeo, obtém o ID e reproduz
+      const nextVideoId = iframe.src.split('?autoplay=')[1];
+      player.loadVideoById(nextVideoId);
+      player.playVideo();
+      break;
+    }
   }
-}
-
-// Função para iniciar a reprodução do vídeo atual
-function playVideo() {
-  // Obtém o ID do primeiro vídeo
-  const firstVideoId = videoIds[currentVideoIndex];
-
-  // Carrega e reproduz o primeiro vídeo
-  player.loadVideoById(firstVideoId);
 }
