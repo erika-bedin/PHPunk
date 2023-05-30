@@ -24,7 +24,9 @@ function onYouTubeIframeAPIReady() {
     // Função chamada quando o player estiver pronto
     function onPlayerReady(event) {
       // Iniciar a reprodução do primeiro vídeo
-      event.target.playVideo();
+      if (currentPlayerIndex === 0) {
+        event.target.playVideo();
+      }
     }
   
     // Função chamada quando o estado do player mudar
