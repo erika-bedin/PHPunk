@@ -1,0 +1,40 @@
+/*Configuracao da pagina de quem somos*/
+#section-quemsomos {
+    font-size: 16px;
+    font-family: "New Rocker", sans-serif;
+    color: var(--cor_0);
+    background-color:var(--cor_1000);    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-membros-squad{
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px ;
+    align-items: center;
+    border: solid var(--cor_50) 2px;
+    background-color: var(--cor_500);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.card-membros-squad img{
+    width: 100%;
+    max-width: 200px;
+    border: solid var(--cor_200) 2px;
+    border-radius: 20px;
+    filter: grayscale(100%) blur(2px);
+    transition: filter 0.5s ease-in-out;
+}
+
+.card-membros-squad img:hover{
+    filter: grayscale(0%) blur(0px);
+}
+
+.videos-recomend-container{
+    margin-bottom: 40px;
+}
