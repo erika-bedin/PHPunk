@@ -11,7 +11,6 @@ function onYouTubeIframeAPIReady() {
       var videoElement = videoElements[i];
       var player = new YT.Player(videoElement, {
         events: {
-          'onReady': onPlayerReady,
           'onStateChange': onPlayerStateChange
         }
       });
@@ -21,21 +20,20 @@ function onYouTubeIframeAPIReady() {
     // Armazenar o índice do jogador atual
     var currentPlayerIndex = 0;
   
-    // Função chamada quando o player estiver pronto
-    function onPlayerReady(event) {
-      // Iniciar a reprodução do primeiro vídeo
-      if (currentPlayerIndex === 0) {
-        event.target.playVideo();
-      }
-    }
-  
     // Função chamada quando o estado do player mudar
     function onPlayerStateChange(event) {
+      // Se o vídeo atual está sendo reproduzido
+      if (event.data === YT.PlayerState.PLAYING) {
+        // Pausar todos os outros vídeos
+        for (var i = 0; i < players.length; i++) {
+          if (i !== currentPlayerIndex) {
+            players[i].pauseVideo();
+          }
+        }
+      }
+  
       // Se o vídeo atual terminou de reproduzir
       if (event.data === YT.PlayerState.ENDED) {
-        // Parar a reprodução do vídeo atual
-        event.target.stopVideo();
-  
         // Avançar para o próximo vídeo
         currentPlayerIndex++;
         if (currentPlayerIndex < players.length) {
