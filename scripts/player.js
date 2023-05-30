@@ -1,36 +1,48 @@
-// Obtenha todos os iframes de vídeo
-const videoFrames = document.querySelectorAll('iframe');
+// player.js
 
-// Variável para controlar o índice atual do vídeo
-let currentVideoIndex = 0;
-
-// Função para reproduzir o próximo vídeo
-function playNextVideo() {
-    // Pausa o vídeo atual
-    videoFrames[currentVideoIndex].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
-
-    // Incrementa o índice
-    currentVideoIndex++;
-
-    // Verifica se chegou ao fim da lista de vídeos
-    if (currentVideoIndex >= videoFrames.length) {
-        // Reinicia o índice para repetir a reprodução
-        currentVideoIndex = 0;
+// Carregar a API do YouTube
+function onYouTubeIframeAPIReady() {
+    // Obter todos os elementos <iframe> com a classe "video"
+    var videoElements = document.getElementsByClassName('video');
+  
+    // Inicializar os players do YouTube
+    var players = [];
+    for (var i = 0; i < videoElements.length; i++) {
+      var videoElement = videoElements[i];
+      var player = new YT.Player(videoElement, {
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+      });
+      players.push(player);
     }
-
-    // Inicia o próximo vídeo
-    videoFrames[currentVideoIndex].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
-}
-
-// Adiciona um ouvinte de evento quando um vídeo termina de reproduzir
-function onVideoEnded() {
-    playNextVideo();
-}
-
-// Adiciona o ouvinte de evento para cada vídeo
-videoFrames.forEach((frame) => {
-    frame.addEventListener('ended', onVideoEnded);
-});
-
-// Inicia a reprodução do primeiro vídeo
-videoFrames[currentVideoIndex].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+  
+    // Armazenar o índice do jogador atual
+    var currentPlayerIndex = 0;
+  
+    // Função chamada quando o player estiver pronto
+    function onPlayerReady(event) {
+      // Iniciar a reprodução do primeiro vídeo
+      event.target.playVideo();
+    }
+  
+    // Função chamada quando o estado do player mudar
+    function onPlayerStateChange(event) {
+      // Se o vídeo atual terminou de reproduzir
+      if (event.data === YT.PlayerState.ENDED) {
+        // Parar a reprodução do vídeo atual
+        event.target.stopVideo();
+  
+        // Avançar para o próximo vídeo
+        currentPlayerIndex++;
+        if (currentPlayerIndex < players.length) {
+          players[currentPlayerIndex].playVideo();
+        } else {
+          // Se todos os vídeos foram reproduzidos, reiniciar a reprodução do primeiro vídeo
+          currentPlayerIndex = 0;
+          players[currentPlayerIndex].playVideo();
+        }
+      }
+    }
+  }
