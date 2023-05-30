@@ -1,0 +1,100 @@
+/*configuracoes da pagina fique por dentro*/
+
+#main-fique-por-dentro{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+.news{
+    width: 80%;
+}
+
+#legiao-id{    
+}
+.imagem-texto-fpd{
+    display: flex;
+    flex-direction: column;
+}
+
+.imagem-texto-fpd{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.imagem-texto-fpd img{
+    max-width: 500px;
+}
+
+.imagem-texto-fpd h2{
+    width: 80%;
+}
+
+.noticia-container{
+    margin: 20px 0px;
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    background-color: var(--cor_800);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.texto-fpd{
+    width: 50%;
+}
+
+@keyframes fogo {
+    0% {
+      text-shadow: 0px 0px 5px #ff6633, 0px 0px 10px #ff6633, 0px 0px 15px #ff6633, 0px 0px 20px #ff6633, 0px 0px 30px #ff6633, 0px 0px 40px #ff6633, 0px 0px 50px #ff6633;
+    }
+    20% {
+      text-shadow: 0px 0px 5px #ff6633, 0px 0px 10px #ff6633, 0px 0px 15px #ff6633, 0px 0px 20px #ff6633, 0px 0px 30px #ff9933, 0px 0px 40px #ff9933, 0px 0px 50px #ff9933;
+    }
+    40% {
+      text-shadow: 0px 0px 5px #ff9933, 0px 0px 10px #ff9933, 0px 0px 15px #ff9933, 0px 0px 20px #ff9933, 0px 0px 30px #ffcc33, 0px 0px 40px #ffcc33, 0px 0px 50px #ffcc33;
+    }
+    60% {
+      text-shadow: 0px 0px 5px #ffcc33, 0px 0px 10px #ffcc33, 0px 0px 15px #ffcc33, 0px 0px 20px #ffcc33, 0px 0px 30px #ff9933, 0px 0px 40px #ff9933, 0px 0px 50px #ff9933;
+    }
+    80% {
+      text-shadow: 0px 0px 5px #ff9933, 0px 0px 10px #ff9933, 0px 0px 15px #ff9933, 0px 0px 20px #ff9933, 0px 0px 30px #ff6633, 0px 0px 40px #ff6633, 0px 0px 50px #ff6633;
+    }
+    100% {
+      text-shadow: 0px 0px 5px #ff6633, 0px 0px 10px #ff6633, 0px 0px 15px #ff6633, 0px 0px 20px #ff6633, 0px 0px 30px #ff6633, 0px 0px 40px #ff6633, 0px 0px 50px #ff6633;
+    }
+  }
+  
+  /*configuracoes do carrosel*/
+
+  .top-bandas-container p{
+    font-size: 1.2rem;
+  }
+
+  .top-bandas-ol-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 60px;
+    margin-top: 20px;
+  }
+
+  .top-bandas-li-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .top-bandas-li-container img{
+    width: 100%;
+    max-width: 200px;
+    border-radius: 100px;
+  }
+
+  .top-bandas-ol-container a{
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: var(--cor_50);
+  } 
