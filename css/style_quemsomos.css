@@ -10,6 +10,8 @@
 }
 
 .card-membros-squad{
+    width: 100%; /* Definir a largura como 100% para ocupar toda a largura disponível */
+    box-sizing: border-box; /* Incluir a largura do preenchimento e da borda no cálculo total */
     margin-bottom: 40px;
     display: flex;
     flex-direction: row;
