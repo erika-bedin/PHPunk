@@ -30,7 +30,7 @@
         --cor_800: #c8c8c8;
         --cor_700: #a4a4a4;
         --cor_600: #787878;
-        --cor_500: #666666;
+        --cor_500: #8f8f8f;
         --cor_400: #515151;
         --cor_300: #434343;
         --cor_200: #383838;
@@ -239,3 +239,25 @@ footer p{
     font-size: 1.2rem;
     color: var(--cor_50);
   } 
+  
+  @keyframes fogo {
+    0% {
+      text-shadow: 0px 0px 5px #ff6633, 0px 0px 10px #ff6633, 0px 0px 15px #ff6633, 0px 0px 20px #ff6633, 0px 0px 30px #ff6633, 0px 0px 40px #ff6633, 0px 0px 50px #ff6633;
+    }
+    20% {
+      text-shadow: 0px 0px 5px #ff6633, 0px 0px 10px #ff6633, 0px 0px 15px #ff6633, 0px 0px 20px #ff6633, 0px 0px 30px #ff9933, 0px 0px 40px #ff9933, 0px 0px 50px #ff9933;
+    }
+    40% {
+      text-shadow: 0px 0px 5px #ff9933, 0px 0px 10px #ff9933, 0px 0px 15px #ff9933, 0px 0px 20px #ff9933, 0px 0px 30px #ffcc33, 0px 0px 40px #ffcc33, 0px 0px 50px #ffcc33;
+    }
+    60% {
+      text-shadow: 0px 0px 5px #ffcc33, 0px 0px 10px #ffcc33, 0px 0px 15px #ffcc33, 0px 0px 20px #ffcc33, 0px 0px 30px #ff9933, 0px 0px 40px #ff9933, 0px 0px 50px #ff9933;
+    }
+    80% {
+      text-shadow: 0px 0px 5px #ff9933, 0px 0px 10px #ff9933, 0px 0px 15px #ff9933, 0px 0px 20px #ff9933, 0px 0px 30px #ff6633, 0px 0px 40px #ff6633, 0px 0px 50px #ff6633;
+    }
+    100% {
+      text-shadow: 0px 0px 5px #ff6633, 0px 0px 10px #ff6633, 0px 0px 15px #ff6633, 0px 0px 20px #ff6633, 0px 0px 30px #ff6633, 0px 0px 40px #ff6633, 0px 0px 50px #ff6633;
+    }
+  }
+  

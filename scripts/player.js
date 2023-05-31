@@ -17,7 +17,7 @@ function onYouTubeIframeAPIReady() {
       players.push(player);
     }
   
-    // Armazenar o índice do jogador atual
+    // Armazenar o índice do player atual
     var currentPlayerIndex = 0;
   
     // Função chamada quando o estado do player mudar

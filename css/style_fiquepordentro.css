@@ -43,27 +43,7 @@
     width: 50%;
 }
 
-@keyframes fogo {
-    0% {
-      text-shadow: 0px 0px 5px #ff6633, 0px 0px 10px #ff6633, 0px 0px 15px #ff6633, 0px 0px 20px #ff6633, 0px 0px 30px #ff6633, 0px 0px 40px #ff6633, 0px 0px 50px #ff6633;
-    }
-    20% {
-      text-shadow: 0px 0px 5px #ff6633, 0px 0px 10px #ff6633, 0px 0px 15px #ff6633, 0px 0px 20px #ff6633, 0px 0px 30px #ff9933, 0px 0px 40px #ff9933, 0px 0px 50px #ff9933;
-    }
-    40% {
-      text-shadow: 0px 0px 5px #ff9933, 0px 0px 10px #ff9933, 0px 0px 15px #ff9933, 0px 0px 20px #ff9933, 0px 0px 30px #ffcc33, 0px 0px 40px #ffcc33, 0px 0px 50px #ffcc33;
-    }
-    60% {
-      text-shadow: 0px 0px 5px #ffcc33, 0px 0px 10px #ffcc33, 0px 0px 15px #ffcc33, 0px 0px 20px #ffcc33, 0px 0px 30px #ff9933, 0px 0px 40px #ff9933, 0px 0px 50px #ff9933;
-    }
-    80% {
-      text-shadow: 0px 0px 5px #ff9933, 0px 0px 10px #ff9933, 0px 0px 15px #ff9933, 0px 0px 20px #ff9933, 0px 0px 30px #ff6633, 0px 0px 40px #ff6633, 0px 0px 50px #ff6633;
-    }
-    100% {
-      text-shadow: 0px 0px 5px #ff6633, 0px 0px 10px #ff6633, 0px 0px 15px #ff6633, 0px 0px 20px #ff6633, 0px 0px 30px #ff6633, 0px 0px 40px #ff6633, 0px 0px 50px #ff6633;
-    }
-  }
-  
+
   /*configuracoes do carrosel*/
 
   .top-bandas-container p{
