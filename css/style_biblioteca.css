@@ -1,0 +1,55 @@
+/*Configuracao da pagina de biblioteca*/
+#section-biblioteca {
+    color:var(--cor_0);
+    background-color:var(--cor_1000);
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+}
+
+.primeiro-container-biblioteca{
+    width: 100%;
+}
+
+.videos-container-cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+} 
+
+.videos-container-cards iframe{
+    width: 22,5%;
+}
+
+.player1{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 22,5%;
+}
+
+.container-texto-quem-somos{
+    width: 80%;
+}
+
+#recomend{
+    margin-bottom: 30px;
+}
+
+.container-texto-quem-somos h1{
+    margin-bottom: 20px;
+}
+
+.videos-recomend-container{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.primeiro-container-biblioteca h1, .container-feito-para-voce h3, .container-mais-ouvidos h3{
+    margin-bottom: 30px;
+}
