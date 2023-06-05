@@ -1,5 +1,7 @@
 /*Configuracao da pagina de cadastro*/
 
+
+
 #main-cadastro{
     display: flex;
     flex-direction: column;
@@ -110,3 +112,4 @@
     border: solid 4px rgb(135, 0, 0);
     background-color: rgb(250, 197, 197)
 }
+

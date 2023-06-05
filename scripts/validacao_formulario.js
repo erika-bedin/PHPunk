@@ -5,6 +5,12 @@ const sobrenome_Input = document.getElementById("sobrenome");
 const email_Input = document.getElementById("email");
 const telefone_input = document.getElementById("telefone");
 const politica_input = document.getElementById("politica_privacidade");
+const form_PopUp = document.querySelector("dialog");
+const bota_FechaPopUp = document.getElementById("fecha-popup");
+
+bota_FechaPopUp.onclick = function () {
+    form_PopUp.close();
+}
 
 //resetando o compartamento padrao da pagina de formulários
 formulario.addEventListener('submit', (e) => {
@@ -128,6 +134,6 @@ function validandoEnvioFormulario(input1, input2, input3, input4){
     const papai_input4 = input4.parentElement;
 
     if(papai_input1.classList.contains("sucesso") && papai_input2.classList.contains("sucesso") && papai_input3.classList.contains("sucesso") && papai_input4.classList.contains("sucesso")){
-        alert("Formulário enviado com sucesso!")
+        form_PopUp.showModal();
     }
 }
