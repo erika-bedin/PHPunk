@@ -27,15 +27,19 @@ botao_AddVideo.onclick = function adicionarVideo() {
 
     // Adicionar o vídeo card ao contêiner de vídeos
     let videosContainer = document.getElementById("videos-container");
-    if(titulo == ""){
-        alert("Insira o nome da música")
-    }
-    if(banda == ""){
-        alert("Insira o nome da banda")
-    }
-    if(url != ''){
+   
+    
+    if(url != '' && titulo != "" && banda != ""){
         videosContainer.appendChild(videoCard);
     }
+    else if(titulo == ""){
+        alert("Insira o nome da música")
+    }
+    
+    else if(banda == ""){
+        alert("Insira o nome da banda")
+    }
+
     else{
         alert("Você não digitou uma URL")
     }
