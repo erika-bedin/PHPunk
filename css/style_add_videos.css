@@ -1,0 +1,53 @@
+#main-add-video{
+    display: flex;
+    flex-direction: column;
+}
+.video-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .video-container h3, .video-container p{
+    color: black;
+  }
+  .video-card {
+    width: 300px;
+    margin: 10px;
+    padding: 15px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+  }
+  .video-card h3 {
+    margin: 0;
+  }
+  .video-card iframe {
+    width: 100%;
+    height: 200px;
+  }
+
+  .container-input{
+    max-width: 100%;
+  }
+  .container-input input{
+    padding: 5px;
+    border-radius: 5px;
+  }
+
+  .container-cadastro-videos{
+    display: flex;
+    gap: 15px;
+    background-color: rgb(143, 143, 143);
+    width: 40%;
+    min-width: 280px;
+    margin: 50px auto auto auto;
+    padding: 20px 0px;
+    border-radius: 5px;
+  }
+  #botao-add-video{
+    margin-top: 20px;
+    align-self: center;
+    padding: 10px;
+  }
