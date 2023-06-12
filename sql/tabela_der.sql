@@ -52,7 +52,84 @@ INSERT INTO PoliticaPrivacidade (id_politica_privacidade, descricao_politica_pri
 
 --Sprint V:
 -- 1. Diagrama Entidade-Relacionamento (DER) da página HTML:
+-- +-------------------+
+--  |     Usuario       |
+--  +-------------------+
+--  | id_usuario (PK)   |
+--  | nome              |
+--  | sobrenome         |
+--  | email             |
+--  | telefone          |
+--  | sugestoes         |
+--  | frequencia_atualizacoes |
+--  +-------------------+
+--         |
+--         |
+--         |    +------------------+
+--         +--<|     Cadastro     |
+--         |  +------------------+
+--         |  | id_cadastro (PK) |
+--         |  | id_usuario (FK)  |
+--         |  | id_interesse (FK)|
+--         |  +------------------+
+--         |          |
+--         |          |
+--         |    +------------------+
+--         +--<|    Interesse     |
+--         |  +------------------+
+--         |  | id_interesse (PK)|
+--         |  | nome_interesse   |
+--         |  +------------------+
+--         |
+--         |
+--         |    +--------------------------+
+--         +--<|   PoliticaPrivacidade    |
+--            +--------------------------+
+--            | id_politica_privacidade (PK) |
+--            | descricao_politica_privacidade|
+--            +--------------------------+
+--Relacionamento entre Usuario e Cadastro:
+--Um usuário pode ter vários cadastros, mas um cadastro está associado a apenas um usuário. 
+--É um relacionamento um para muitos (1:N).
 
+--Relacionamento entre Interesse e Cadastro:
+--Um interesse pode estar associado a vários cadastros, e um cadastro está associado a 
+--apenas um interesse. Portanto, é um relacionamento um para muitos (1:N).
+
+--Relacionamento entre Usuario e PoliticaPrivacidade:
+--Um usuário pode estar associado a apenas uma política de privacidade, e uma política de 
+--privacidade pode estar associada a vários usuários. Portanto, é um relacionamento muitos para um (N:1).
+
+--MODELO LÓGICO
+--Tabela: Usuario
+--+-----------------+-------------+--------+------+---------+------------+-------------------------+
+--| id_usuario (PK) | nome        | sobrenome  | email    | telefone | sugestoes  | frequencia_atualizacoes |
+--+-----------------+-------------+--------+------+---------+------------+-------------------------+
+--| INTEGER         | TEXT        | TEXT    | TEXT     | TEXT     | TEXT       | TEXT                    |
+--+-----------------+-------------+--------+------+---------+------------+-------------------------+
+
+--Tabela: Interesse
+--+-------------------+----------------+
+--| id_interesse (PK) | nome_interesse |
+--+-------------------+----------------+
+--| INTEGER           | TEXT           |
+--+-------------------+----------------+
+
+--Tabela: Cadastro
+--+------------------+-----------------+------------------+
+--| id_cadastro (PK) | id_usuario (FK) | id_interesse (FK)|
+--+------------------+-----------------+------------------+
+--| INTEGER          | INTEGER         | INTEGER          |
+--+------------------+-----------------+------------------+
+
+--Tabela: PoliticaPrivacidade
+--+-------------------------------+-----------------------------+
+--| id_politica_privacidade (PK) | descricao_politica_privacidade |
+--+-------------------------------+-----------------------------+
+--| INTEGER                       | TEXT                        |
+--+-------------------------------+-----------------------------+
+
+--MODELO CONCEITUAL
 --Entidade: Usuário
 --Atributos: nome, sobrenome, email, telefone, sugestões, frequência_atualizacoes
 
@@ -124,3 +201,5 @@ WHERE i.nome_interesse = 'Punk Rock';
 --| nome  | email            |
 --|-------|------------------|
 --| Maria | maria@example.com |
+
+--
