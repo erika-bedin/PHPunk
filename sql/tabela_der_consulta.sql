@@ -52,21 +52,21 @@ INSERT INTO PoliticaPrivacidade (id_politica_privacidade, descricao_politica_pri
 
 --Sprint V:
 -- 1. Diagrama Entidade-Relacionamento (DER) da página HTML:
--- +-------------------+
---  |     Usuario       |
---  +-------------------+
---  | id_usuario (PK)   |
---  | nome              |
---  | sobrenome         |
---  | email             |
---  | telefone          |
---  | sugestoes         |
+--  +-------------------------+
+--  |     Usuario             |
+--  +-------------------------+
+--  | id_usuario (PK)         |
+--  | nome                    |
+--  | sobrenome               |
+--  | email                   |
+--  | telefone                |
+--  | sugestoes               |
 --  | frequencia_atualizacoes |
---  +-------------------+
+--  +-------------------------+
 --         |
 --         |
---         |    +------------------+
---         +--<|     Cadastro     |
+--         |  +------------------+
+--         +--<|     Cadastro    |
 --         |  +------------------+
 --         |  | id_cadastro (PK) |
 --         |  | id_usuario (FK)  |
@@ -74,20 +74,22 @@ INSERT INTO PoliticaPrivacidade (id_politica_privacidade, descricao_politica_pri
 --         |  +------------------+
 --         |          |
 --         |          |
---         |    +------------------+
---         +--<|    Interesse     |
+--         |  +------------------+
+--         +--<|    Interesse    |
 --         |  +------------------+
 --         |  | id_interesse (PK)|
 --         |  | nome_interesse   |
 --         |  +------------------+
 --         |
 --         |
---         |    +--------------------------+
---         +--<|   PoliticaPrivacidade    |
---            +--------------------------+
---            | id_politica_privacidade (PK) |
---            | descricao_politica_privacidade|
---            +--------------------------+
+--         |  +--------------------------------+
+--         +--<|   PoliticaPrivacidade         |
+--            +--------------------------------+
+--            | id_politica_privacidade (PK)   |
+--            | descricao_politica_privacidade |
+--            +--------------------------------+
+
+--Explicação:
 --Relacionamento entre Usuario e Cadastro:
 --Um usuário pode ter vários cadastros, mas um cadastro está associado a apenas um usuário. 
 --É um relacionamento um para muitos (1:N).
@@ -100,13 +102,41 @@ INSERT INTO PoliticaPrivacidade (id_politica_privacidade, descricao_politica_pri
 --Um usuário pode estar associado a apenas uma política de privacidade, e uma política de 
 --privacidade pode estar associada a vários usuários. Portanto, é um relacionamento muitos para um (N:1).
 
+--MODELO FÍSICO
+--Tabela: Usuario
+--id_usuario (PK)	nome	sobrenome	email				telefone	sugestoes	frequencia_atualizacoes
+--1					João	Silva		joao@example.com	1234567890	NULL		semanal
+--2					Maria	Souza		maria@example.com	9876543210	NULL		mensal
+
+--Tabela: Interesse
+--id_interesse (PK)	nome_interesse
+--1					Metal
+--2					Clássico
+--3					Pop Rock
+--4					Punk Rock
+--5					Alternativo
+--6					Indie
+
+--Tabela: Cadastro
+--id_cadastro (PK)	id_usuario (FK)	id_interesse (FK)
+--1					1				1
+--2					1				3
+--3					2				2
+--4					2				4
+--5					2				5
+
+--Tabela: PoliticaPrivacidade
+--id_politica_privacidade (PK)	descricao_politica_privacidade
+--1								Li e concordo com a política de privacidade
+
+
 --MODELO LÓGICO
 --Tabela: Usuario
---+-----------------+-------------+--------+------+---------+------------+-------------------------+
+--+-----------------+-------------+------------+----------+----------+------------+-------------------------+
 --| id_usuario (PK) | nome        | sobrenome  | email    | telefone | sugestoes  | frequencia_atualizacoes |
---+-----------------+-------------+--------+------+---------+------------+-------------------------+
---| INTEGER         | TEXT        | TEXT    | TEXT     | TEXT     | TEXT       | TEXT                    |
---+-----------------+-------------+--------+------+---------+------------+-------------------------+
+--+-----------------+-------------+------------+----------+----------+------------+-------------------------+
+--| INTEGER         | TEXT        | TEXT       | TEXT     | TEXT     | TEXT       | TEXT                    |
+--+-----------------+-------------+------------+----------+----------+------------+-------------------------+
 
 --Tabela: Interesse
 --+-------------------+----------------+
@@ -123,11 +153,11 @@ INSERT INTO PoliticaPrivacidade (id_politica_privacidade, descricao_politica_pri
 --+------------------+-----------------+------------------+
 
 --Tabela: PoliticaPrivacidade
---+-------------------------------+-----------------------------+
---| id_politica_privacidade (PK) | descricao_politica_privacidade |
---+-------------------------------+-----------------------------+
---| INTEGER                       | TEXT                        |
---+-------------------------------+-----------------------------+
+--+-------------------------------+--------------------------------+
+--| id_politica_privacidade (PK)  | descricao_politica_privacidade |
+--+-------------------------------+--------------------------------+
+--| INTEGER                       | TEXT                           |
+--+-------------------------------+--------------------------------+
 
 --MODELO CONCEITUAL
 --Entidade: Usuário
@@ -147,7 +177,7 @@ INSERT INTO PoliticaPrivacidade (id_politica_privacidade, descricao_politica_pri
 
 --Tabela: Usuario
 --| id_usuario (PK) | nome    | sobrenome   | email             | telefone   | sugestoes | frequencia_atualizacoes |
---|-----------------|---------|-------------|-------------------|-------------|-----------|-------------------------|
+--|-----------------|---------|-------------|-------------------|------------|-----------|-------------------------|
 --| 1               | João    | Silva       | joao@example.com  | 1234567890 | NULL      | semanal                 |
 --| 2               | Maria   | Souza       | maria@example.com | 9876543210 | NULL      | mensal                  |
 
@@ -162,7 +192,7 @@ INSERT INTO PoliticaPrivacidade (id_politica_privacidade, descricao_politica_pri
 --| 6                 | Indie          |
 
 --Tabela: Cadastro
---| id_cadastro (PK) | id_usuario (FK) | id_interesse (FK) |
+--| id_cadastro (PK) | id_usuario (FK) | id_interesse (FK)|
 --|------------------|-----------------|------------------|
 --| 1                | 1               | 1                |
 --| 2                | 1               | 3                |
@@ -172,7 +202,7 @@ INSERT INTO PoliticaPrivacidade (id_politica_privacidade, descricao_politica_pri
 
 --Tabela: PoliticaPrivacidade
 --| id_politica_privacidade (PK) | descricao_politica_privacidade                                                                                                                                                                                             |
---|------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+--|------------------------------|---------------------------------------------|
 --| 1                            | Li e concordo com a política de privacidade                                                                                                                                                                              |
 
 --3. Exemplos de consultas juntando tabelas:
@@ -190,6 +220,12 @@ WHERE u.id_usuario = 1;
 --| Metal          |
 --| Pop Rock       |
 
+--Explicação: A consulta seleciona a coluna nome_interesse da tabela Interesse. Com o JOIN 
+--juntamos as tabelas Usuario, Cadastro e Interesse com base nas chaves estrangeiras definidas. 
+--A condição u.id_usuario = 1 filtra os resultados para obter apenas os interesses do usuário 
+--com id_usuario igual a 1. Assim, lista dos interesses desse usuário específico, retornando os 
+--valores da coluna nome_interesse da tabela Interesse. 
+
 --b) Consulta para obter os usuários que possuem um determinado interesse:
 SELECT u.nome, u.email
 FROM Usuario u
@@ -198,8 +234,12 @@ JOIN Interesse i ON c.id_interesse = i.id_interesse
 WHERE i.nome_interesse = 'Punk Rock';
 
 --Resultado:
---| nome  | email            |
---|-------|------------------|
+--| nome  | email             |
+--|-------|-------------------|
 --| Maria | maria@example.com |
 
---
+--Explicação: Selecionamos as colunas nome e email da tabela Usuario. Com JOIN, juntamos as tabelas 
+--Usuario, Cadastro e Interesse. A condição i.nome_interesse = 'Punk Rock' filtra os resultados para 
+--obter apenas os usuários que possuem interesse em 'Punk Rock'. Assim, teremos  uma lista dos nomes 
+--e emails dos usuários que possuem o interesse 'Punk Rock', retornando os valores das colunas nome e 
+--email da tabela Usuario.
