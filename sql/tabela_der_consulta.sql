@@ -95,8 +95,8 @@ INSERT INTO PoliticaPrivacidade (id_politica_privacidade, descricao_politica_pri
 --É um relacionamento um para muitos (1:N).
 
 --Relacionamento entre Interesse e Cadastro:
---Um interesse pode estar associado a vários cadastros, e um cadastro está associado a 
---apenas um interesse. Portanto, é um relacionamento um para muitos (1:N).
+--Um interesse pode estar associado a vários cadastros, e um cadastro também pode estar associado a 
+--vários interesses. Portanto, é um relacionamento muitos para muitos (N:N).
 
 --Relacionamento entre Usuario e PoliticaPrivacidade:
 --Um usuário pode estar associado a apenas uma política de privacidade, e uma política de 
