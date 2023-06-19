@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/style_fiquepordentro.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=New Rocker">
     <script src="../scripts/iluminacao.js" defer></script>
+    <script src="../scripts/news_img_slider.js" defer></script>
     <title>Rock Music - Fique por dentro</title>
   </head>
   <body>
@@ -29,7 +30,35 @@
     <button id="botao-iluminacao">Light Mode / Dark Mode</button>
     <main id="main-fique-por-dentro">
       <h1>Fique por dentro</h1>
-      <h3>Acompanhe as últimas notícias do mundo do Rock:</h3>
+      <h3>Acompanhe as últimas notícias do mundo do Rock:</h3>      
+        <div class="img-slider">
+          <div class="slide active">
+            <img src="../imgs/led-zeppelin-1973.jpg" alt="">
+            <div class="info">
+              <h2>Led Zeppelin</h2>
+              <p>Desde 2000, a Biblioteca do Congresso tem reunido algumas das gravações de áudio mais icônicas da história e as tem preservado para as futuras gerações como parte do Registro Nacional de Gravações.</p>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="../imgs/marcelo-bonfa.jpg" alt="">
+            <div class="info">
+              <h2>Marcelo Bonfá</h2>
+              <p>O trabalho, com dez canções gravadas durante a pandemia, em seu sítio no interior de Minas Gerais, traz canções que refletem sobre a vida e o autoconhecimento, feitas em parceria com o seu filho, o guitarrista João Pedro, de 31 anos.</p>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="../imgs/dave-grohl-of-foo-fighters.jpg" alt="">
+            <div class="info">
+              <h2>Foo Fighters</h2>
+              <p>Após a morte de Taylor Hawkins em março de 2022, Foo Fighters realizou dois shows em sua homenagem. Mas sua primeira apresentação agendada como banda desde a morte de Hawkins acontecerá no próximo mês em um pavilhão em New Hampshire.</p>
+            </div>
+          </div>
+          <div class="navigation">
+            <div class="btn active"></div>
+            <div class="btn"></div>
+            <div class="btn"></div>
+          </div>
+        </div>
       <section class="news">
         <article id="led-container" class="noticia-container">
           <div class="imagem-texto-fpd">
@@ -44,8 +73,8 @@
         <article id="legiao-id" class="noticia-container">
           <div class="texto-fpd">
             <h4>Ex-integrante do Legião Urbana, o músico lança seu novo álbum solo, 'Improvável Certeza', com canções que refletem sobre a vida e o autoconhecimento</h4>
+            <p>O trabalho, com dez canções gravadas durante a pandemia, em seu sítio no interior de Minas Gerais, traz canções que refletem sobre a vida e o autoconhecimento, feitas em parceria com o seu filho, o guitarrista João Pedro, de 31 anos.</p>
           </div>
-
             <div class="imagem-texto-fpd">
               <img src="../imgs/marcelo-bonfa.jpg" alt="Foto do baterista Marcelo Bonfá"/>
               <h2>"Renato Russo agregaria muito hoje em dia", diz o baterista Marcelo Bonfá</h2>

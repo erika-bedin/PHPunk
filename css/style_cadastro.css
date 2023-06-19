@@ -1,113 +1,110 @@
 /*Configuracao da pagina de cadastro*/
 
-#main-cadastro{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#main-cadastro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#formulario-container{
-    display: flex;
-    margin-top: 15px;
-    flex-direction: column;
-    max-width: 50%;
-    width: 50%;
-    gap: 10px;
-    align-items: center;
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: 1px 1px 6px var(--cor_950); 
-    background-color: var(--cor_500);
-} 
-
-.input-container{
-    display: flex;
-    flex-direction: column;
-    align-items: self-start;
-    width: 75%;
-    
+#formulario-container {
+  display: flex;
+  margin-top: 15px;
+  flex-direction: column;
+  max-width: 50%;
+  width: 50%;
+  gap: 10px;
+  align-items: center;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 1px 1px 6px var(--cor_950);
+  background-color: var(--cor_500);
 }
 
-.input-container input{
-    padding: 0.3rem;
-    width: 100%;
-    border: solid 1px var(--cor_950);
-    border-radius: 5px;
-    font-family: "New Rocker", sans-serif;
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: self-start;
+  width: 75%;
 }
 
-#formulario-container fieldset{
-    width: 75%;
-    padding: 0.2rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    border-radius: 5px;
-    border: solid 1px var(--cor_950);
-    font-family: "New Rocker", sans-serif;
+.input-container input {
+  padding: 0.3rem;
+  width: 100%;
+  border: solid 1px var(--cor_950);
+  border-radius: 5px;
+  font-family: "New Rocker", sans-serif;
 }
 
-.radio-container{
-    display: flex;
-    margin: 5px;
+#formulario-container fieldset {
+  width: 75%;
+  padding: 0.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-radius: 5px;
+  border: solid 1px var(--cor_950);
+  font-family: "New Rocker", sans-serif;
 }
 
-.input-container select{
-    width: 100%;
-    padding: 0.3rem;
-    border-radius: 5px;
-    border: solid 1px var(--cor_950);
-    font-family: "New Rocker", sans-serif;
+.radio-container {
+  display: flex;
+  margin: 5px;
 }
 
-.input-container textarea{
-    width: 100%;
-    margin-bottom: 10px;
-    resize: none;
-    border-radius: 5px;
-    border: solid 1px var(--cor_950);
-    font-family: "New Rocker", sans-serif;
+.input-container select {
+  width: 100%;
+  padding: 0.3rem;
+  border-radius: 5px;
+  border: solid 1px var(--cor_950);
+  font-family: "New Rocker", sans-serif;
 }
 
+.input-container textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  resize: none;
+  border-radius: 5px;
+  border: solid 1px var(--cor_950);
+  font-family: "New Rocker", sans-serif;
+}
 
 #formulario-container button {
-    width: 30%;
-    padding: 0.3rem;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: solid 1px var(--cor_950);
-    font-family: "New Rocker", sans-serif;
+  width: 30%;
+  padding: 0.3rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: solid 1px var(--cor_950);
+  font-family: "New Rocker", sans-serif;
 }
 
 .politicas-container {
-    display: flex;
-    flex-direction: column;
-    width: 75%;
+  display: flex;
+  flex-direction: column;
+  width: 75%;
 }
 
-.politicas-input-caontainer{
-    display: flex;
-    flex-direction: row-reverse;
-    gap: 10px;
-    align-items: center;
+.politicas-input-caontainer {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 10px;
+  align-items: center;
 }
 
-#section-index{
-    align-items: center;
+#section-index {
+  align-items: center;
 }
 
-.input-container input::placeholder{
-    font-size: 1rem;
+.input-container input::placeholder {
+  font-size: 1rem;
 }
 
-.input-container.sucesso input{
-    border: solid 4px green;
-    background-color: rgb(221, 251, 221);
+.input-container.sucesso input {
+  border: solid 4px green;
+  background-color: rgb(221, 251, 221);
 }
 
-.input-container.erro input{
-    border: solid 4px rgb(135, 0, 0);
-    background-color: rgb(250, 197, 197)
+.input-container.erro input {
+  border: solid 4px rgb(135, 0, 0);
+  background-color: rgb(250, 197, 197);
 }
-

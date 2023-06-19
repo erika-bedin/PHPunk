@@ -1,120 +1,119 @@
 /*Configuracao da pagina de quem somos*/
 /*Resetando as configuracoes de estilizacao*/
-*{
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
-    
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
 }
 
 /*Definindo a paleta de cores*/
-:root{
-    --cor_0: white;
-    --cor_50: #f7f7f7;
-    --cor_100: #e3e3e3;
-    --cor_200: #c8c8c8;
-    --cor_300: #a4a4a4;
-    --cor_400: #787878;
-    --cor_500: #666666;
-    --cor_600: #515151;
-    --cor_700: #434343;
-    --cor_800: #383838;
-    --cor_900: #313131;
-    --cor_950: #1a1a1a;
-    --cor_1000: rgb(15, 15, 15);
-        }
+:root {
+  --cor_0: white;
+  --cor_50: #f7f7f7;
+  --cor_100: #e3e3e3;
+  --cor_200: #c8c8c8;
+  --cor_300: #a4a4a4;
+  --cor_400: #787878;
+  --cor_500: #666666;
+  --cor_600: #515151;
+  --cor_700: #434343;
+  --cor_800: #383838;
+  --cor_900: #313131;
+  --cor_950: #1a1a1a;
+  --cor_1000: rgb(15, 15, 15);
+}
 
-    .darkMode-LightMode:root{
-        --cor_1000: white;
-        --cor_950: #f7f7f7;
-        --cor_900: #e3e3e3;
-        --cor_800: #c8c8c8;
-        --cor_700: #a4a4a4;
-        --cor_600: #787878;
-        --cor_500: #666666;
-        --cor_400: #515151;
-        --cor_300: #434343;
-        --cor_200: #383838;
-        --cor_100: #313131;
-        --cor_50: #1a1a1a;
-        --cor_0: rgb(15, 15, 15);
-    }
+.darkMode-LightMode:root {
+  --cor_1000: white;
+  --cor_950: #f7f7f7;
+  --cor_900: #e3e3e3;
+  --cor_800: #c8c8c8;
+  --cor_700: #a4a4a4;
+  --cor_600: #787878;
+  --cor_500: #666666;
+  --cor_400: #515151;
+  --cor_300: #434343;
+  --cor_200: #383838;
+  --cor_100: #313131;
+  --cor_50: #1a1a1a;
+  --cor_0: rgb(15, 15, 15);
+}
 
 #section-quemsomos {
-    font-size: 16px;
-    font-family: "New Rocker", sans-serif;
-    color: var(--cor_0);
-    background-color:var(--cor_1000);    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  font-size: 16px;
+  font-family: "New Rocker", sans-serif;
+  color: var(--cor_0);
+  background-color: var(--cor_1000);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.card-membros-squad{
-    margin-bottom: 40px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 20px ;
-    align-items: center;
-    border: solid var(--cor_50) 2px;
-    background-color: var(--cor_500);
-    padding: 10px;
-    border-radius: 10px;
+.card-membros-squad {
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  border: solid var(--cor_50) 2px;
+  background-color: var(--cor_500);
+  padding: 10px;
+  border-radius: 10px;
 }
 
-.card-membros-squad img{
-    width: 100%;
-    max-width: 200px;
-    border: solid var(--cor_200) 2px;
-    border-radius: 20px;
-    filter: grayscale(100%) blur(2px);
-    transition: filter 0.5s ease-in-out;
+.card-membros-squad img {
+  width: 100%;
+  max-width: 200px;
+  border: solid var(--cor_200) 2px;
+  border-radius: 20px;
+  filter: grayscale(100%) blur(2px);
+  transition: filter 0.5s ease-in-out;
 }
 
-.card-membros-squad img:hover{
-    filter: grayscale(0%) blur(0px);
+.card-membros-squad img:hover {
+  filter: grayscale(0%) blur(0px);
 }
 
-.videos-recomend-container{
-    margin-bottom: 40px;
+.videos-recomend-container {
+  margin-bottom: 40px;
 }
 
-.videos-container-cards{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-} 
-
-.videos-container-cards iframe{
-    width: 22,5%;
+.videos-container-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.player1{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-    width: 22,5%;
+.videos-container-cards iframe {
+  width: 22, 5%;
 }
 
-.container-texto-quem-somos{
-    width: 80%;
+.player1 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 22, 5%;
 }
 
-#recomend{
-    margin-bottom: 30px;
+.container-texto-quem-somos {
+  width: 80%;
 }
 
-.container-texto-quem-somos h1{
-    margin-bottom: 20px;
+#recomend {
+  margin-bottom: 30px;
 }
 
-.videos-recomend-container{
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap: 20px;
+.container-texto-quem-somos h1 {
+  margin-bottom: 20px;
+}
+
+.videos-recomend-container {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 20px;
 }
