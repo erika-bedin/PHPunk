@@ -47,12 +47,26 @@ Espera-se que o aluno consiga executar as seguites atividades:
  * Validação de formulário;
  * Renderização dinâmica de elementos em pelo menos uma página.
 ### Organização 
- * Uso do Github para gestão do projeto 
+ * Uso do Github para gestão do projeto;
  * Uso do Discord para comunicação da equipe. 
 ### Ao final da sprint:
  * O site deve ter pelo menos uma página com conteúdo renderizado de forma dinâmica com JavaScript;
  * O site deve ter pelo menos dois formulários com validações. 
 
+## Sprint V - Telas
+Espera-se que o aluno consiga executar as seguites atividades: 
+### Desenvolvimento 
+ * Modelar o DER (diagrama Entidade Relacionamento) de uma parte do sistema com 4 entidades no mínimo; 
+ * Criar as tabelas na 3FN em um banco de dados com informações de teste;
+ * Realizar consultas simples, se possível, juntando tabelas.
+### Organização 
+ * Uso de recursos de apresentação slides, demonstração de uso do app, etc;
+ * Uso do Git;
+ * Uso do SQL; 
+ * Uso do Discord para comunicação da equipe. 
+### Ao final da sprint:
+ * Construir a apresentação do pitch pela equipe;
+ * Submeter o projeto para avaliação final. 
 
 ## :handshake: Membros
 * <a href="https://github.com/brunonavarone">Bruno Henrique</a>
