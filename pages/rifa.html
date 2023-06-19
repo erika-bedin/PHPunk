@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../imgs/favicon.ico" type="image/x-icon" />
+    <!-- <link rel="stylesheet" href="../css/style_geral.css"> -->
+    <link rel="stylesheet" href="../css/style_rifa.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=New Rocker">
+    <script src="../scripts/iluminacao.js" defer></script>
+    <script src="../scripts/add_videos.js" defer></script>
+    <script src="../scripts/rifa.js" defer></script>
+    <title>PHPunk - Cadastro Vídeos</title>
+  <style>
+  </style>
+</head>
+<body>
+  <header>
+    <h1>PHPunk</h1>
+    <hr class="linha-header">
+    <nav>
+      <ul class="menu-header">
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="../pages/cadastro.html">Cadastro</a></li>
+        <li><a href="../pages/video_cadastro.html">Enviar Vídeo</a></li>
+        <li><a href="../pages/biblioteca.html">Biblioteca</a></li>
+        <li><a href="../pages/quemSomos.html">Quem somos</a></li>
+        <li><a href="../pages/fiquePorDentro.html">Fique por dentro</a></li>
+        <li><a href="../pages/rifa.html">PHPeople</a></li>
+      </ul>
+    </nav>
+  </header>
+  <button id="botao-iluminacao">Light Mode / Dark Mode</button>
+  <main id="main-rifa">
+    <section id="intro" class="card-rifa">
+      <img src="../imgs/Ia_rock_03.png" alt="">
+      <div>
+        <h3>Uma Nova Melodia para a Acessibilidade</h3>
+        <p>
+          Imagine a alegria de uma pessoa surda ao poder experimentar o universo sonoro do rock! É isso que queremos
+          proporcionar a essas pessoas que muitas vezes são marginalizadas pela sociedade. Com a sua participação ativa,
+          podemos mudar essa realidade, transformando vidas através do poder do rock.
+        </p>
+      </div>
+    </section>
+    <section id="rifa" class="card-rifa">
+      <div>
+        <h3>A Rifa do Rock: Ganhe e Faça a Diferença</h3>
+        <p>
+          Apresentamos a você a Rifa do Rock, uma oportunidade única de unir a paixão pela música e a vontade de ajudar.
+          Estamos rifando produtos incríveis relacionados ao rock, gentilmente doados por artistas e parceiros entusiastas.
+          Ao comprar um ou mais bilhetes da rifa, você não apenas tem a chance de ganhar um prêmio exclusivo, mas também
+          está contribuindo diretamente para causas nobres.
+        </p>
+      </div>
+      <img src="../imgs/rifa_do_Rock.png" alt="">
+    </section>
+    <section id="premios" class="card-rifa">
+      <img src="../imgs/produtos.jpg" alt="">
+      <div>
+        <h3>Prêmios Incríveis, Causa Importante</h3>
+        <p>
+          Os prêmios da Rifa do Rock são tão incríveis quanto a nossa causa. Temos guitarras autografadas por lendas do rock,
+          ingressos para shows exclusivos, pacotes de merchandising de bandas famosas e muito mais. Cada prêmio oferece a
+          oportunidade de levar um pouco do espírito do rock para a sua vida, enquanto ajuda a promover a inclusão e a
+          igualdade para pessoas surdas e deficientes auditivos.
+        </p>
+      </div>
+    </section>
+    <section id="como-participar" class="card-rifa">
+      <div>
+        <h3>Como Participar da Rifa do Rock</h3>
+        <p>
+          Participar é fácil! Acesse nossa página dedicada à Rifa do Rock, escolha o(s) número(s) de bilhete(s) que deseja
+          adquirir e faça a doação correspondente. Quanto mais bilhetes você comprar, maiores serão suas chances de ganhar
+          e de fazer a diferença. Compartilhe essa oportunidade com amigos, familiares e colegas que também compartilham
+          da paixão pelo rock e pelo bem-estar social.
+        </p>
+      </div>
+      <img src="../imgs/guitarra_IA01.png" alt="">
+    </section>
+    <section id="fazendo-historia" class="card-rifa">
+      <img src="../imgs/ia_rock_02.png" alt="">
+      <div>
+        <h3>Fazendo História Juntos</h3>
+        <p>
+          Ao participar da Rifa do Rock e apoiar nosso projeto, você está se juntando a uma comunidade dedicada a tornar o
+          mundo um lugar mais inclusivo e acolhedor para todos. A cada doação, cada prêmio arrecadado e cada sorriso
+          iluminado pela música, estamos fazendo história juntos. Vamos mostrar ao mundo o poder transformador do rock e
+          abrir portas para um futuro mais inclusivo e vibrante.
+        </p>
+      </div>
+    </section>
+    <h1>Simulação de Rifa Online</h1>
+    <section class="container" id="container-rifa">
+      <h2>Escolha 5 números:</h2>
+      <div class="number-grid">
+        <script>
+          let maxNumber = 25;
+          for (let i = 1; i <= maxNumber; i++) {
+            document.write('<div class="number">' + i + '</div>');
+          }
+        </script>
+      </div>
+      <div id="selected-numbers"></div>
+      <button id="draw-button">Sortear número</button>
+      <div id="result" class="popup">
+        <div class="popup-content">
+          <h3 id="result-text"></h3>
+          <p id="drawn-number"></p>
+          <div class="close" onclick="closePopup()">Fechar</div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <hr class="linha-footer">   
+    <footer>
+        <p>Site desenvolvido para fins completamente educacionais</p>
+        <div class="container-lista-footer">
+            <ul class="lista-footer">
+                <li><a href="">Políticas de privacidade</a></li>
+                <li><a href="">Termos e condições</a></li>
+            </ul>
+            <ul class="lista-footer">
+                <li><a href="">História</a></li>
+                <li><a href="">Patrocinadores</a></li>
+                <li><a href="">Trabalhe Conosco</a></li>
+            </ul>
+            <ul class="lista-footer">
+                <li><a href="">Nossos Produtos</a></li>
+                <li><a href="">Promoções</a></li>
+                <li><a href="">Seja membro do club <strong>PHPunk</strong></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="container-redesSociais">
+            <a href="https://www.instagram.com/"><img src="../imgs/insta.png" alt="Imagem do Instagram"></a>
+            <a href="https://www.facebook.com/"><img src="../imgs/face.png" alt="Imagem do Facebook"></a>
+            <a href="https://www.twitter.com/"><img src="../imgs/Twitter_logo.png" alt="Imagem do Twitter"></a>
+        </div>
+    </footer>
+  </body>
+</html>
