@@ -1,4 +1,5 @@
     let selectedNumbers = [];
+    
 
     // Função para adicionar ou remover um número selecionado
     function toggleSelectedNumber(number) {
@@ -36,10 +37,13 @@
       let number = numbers[i];
       number.addEventListener('click', function() {
         let selectedNumber = parseInt(this.textContent);
+        if (selectedNumbers.length < 5 || this.classList.contains('selected')){
         toggleSelectedNumber(selectedNumber);
         this.classList.toggle('selected');
+        }
       });
     }
+
 
     // Sortear um número e verificar se o usuário ganhou
     document.getElementById('draw-button').addEventListener('click', function() {
