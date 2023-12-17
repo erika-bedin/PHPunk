@@ -1,6 +1,6 @@
-# Projeto Integrador Grupo 1
+# Projeto Integrador Frontend
 ## Sprint I - Layout 
-Espera-se que o aluno consiga executar as seguites atividades: 
+
 ### Desenvolvimento
 * Desenvolver o layout de pelo menos 5 telas do site, uma vez que cada grupo terá em média 5 integrantes
 * Criar repositório remoto com todos os colaboradores do grupo com as referências do layout, que pode ser feito desde à mão até figma 
@@ -12,7 +12,7 @@ Espera-se que o aluno consiga executar as seguites atividades:
 * O projeto deve apresentar os as funcionalidades definidas pelas regras de negócio do tema proposto. 
 
 ## Sprint II - Telas
-Espera-se que o aluno consiga executar as seguites atividades: 
+
 ### Desenvolvimento 
 * Uso apropriado das tags HTML para organização do conteúdo do site; 
 * Ter pelo menos 5 arquivos HMTL (um para cada layout criado anteriormente); 
@@ -29,7 +29,7 @@ Espera-se que o aluno consiga executar as seguites atividades:
     - Footer.  
 
 ## Sprint III - Telas
-Espera-se que o aluno consiga executar as seguites atividades: 
+
 ### Desenvolvimento 
  * Estilização das 5 telas criadas anterioremente em HTML; 
  * Implementar um design com a manipulação do modelo de caixa dos elementos, além de tamanhos e cores das fontes;
@@ -41,7 +41,7 @@ Espera-se que o aluno consiga executar as seguites atividades:
  * O projeto deve apresentar um design intuitivo, claro e objetivo, pensado na experiência do usuário 
 
 ## Sprint IV - Telas
-Espera-se que o aluno consiga executar as seguites atividades: 
+
 ### Desenvolvimento 
  * Manipulação da DOM via JS; 
  * Validação de formulário;
@@ -54,7 +54,7 @@ Espera-se que o aluno consiga executar as seguites atividades:
  * O site deve ter pelo menos dois formulários com validações. 
 
 ## Sprint V - Telas
-Espera-se que o aluno consiga executar as seguites atividades: 
+ 
 ### Desenvolvimento 
  * Modelar o DER (diagrama Entidade Relacionamento) de uma parte do sistema com 4 entidades no mínimo; 
  * Criar as tabelas na 3FN em um banco de dados com informações de teste;
